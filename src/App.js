@@ -36,12 +36,9 @@ const SearchBox = styled.div`
   width: 50%;
   background-color: white;
 `;
-const SearchIcon = styled.img`
-  width: 32px;
-  height: 32px;
-`;
+
 const MovieImage = styled.img`
-  width: 48px;
+  width: 55px;
   height: 48px;
   margin: 15px;
 `;
@@ -57,15 +54,16 @@ const MovieListContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 30px;
+  padding: 1px;
   gap: 25px;
   justify-content: space-evenly;;
 `;
 const Placeholder = styled.img`
-  width: 120px;
-  height: 120px;
+  width: 800px;
+  height: 400px;
   margin: 150px;
-  opacity: 50%;
+  opacity: 100%;
+  
 `;
 
 function App() {
@@ -94,11 +92,12 @@ function App() {
     <Container>
       <Header>
         <AppName>
-          <MovieImage src="/react-movie-app/movie-icon.svg" />
-          Frank's Media Hub
+          <MovieImage src="logo12.jpg" />
+          Frank's Movie Room
+         
         </AppName>
         <SearchBox>
-          <SearchIcon src="/react-movie-app/search-icon.svg" />
+         
           <SearchInput
             placeholder="Search Movie"
             value={searchQuery}
@@ -117,8 +116,13 @@ function App() {
             />
           ))
         ) : (
-          <Placeholder src="/react-movie-app/movie-icon.svg" />
+          <Placeholder src="moviebg.jpg" />
         )}
+
+          <MovieImage src="logo12.jpg" />
+
+          
+        
       </MovieListContainer>
     </Container>
   );
