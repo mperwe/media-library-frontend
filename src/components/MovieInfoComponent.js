@@ -61,8 +61,9 @@ const MovieInfoComponent = (props) => {
   const { selectedMovie } = props;
 
   useEffect(() => {
+    const backendUrl="http://localhost:4100/movies/:id"
     Axios.get(
-      `https://www.omdbapi.com/?i=${selectedMovie}&apikey=${API_KEY}`,
+      backendUrl.replace(":id", selectedMovie),
     ).then((response) => setMovieInfo(response.data));
   }, [selectedMovie]);
   return (
