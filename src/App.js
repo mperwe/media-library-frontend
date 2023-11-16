@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from './pages/Home.js'
-import Dashboard from './pages/Dashboard.js'
+import Home from './pages/Home'
+import Dashboard from './pages/Dashboard'
 
 export const API_KEY = "a9118a3a";
 

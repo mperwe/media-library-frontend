@@ -109,7 +109,7 @@ const MovieInfoComponent = (props) => {
           <Close onClick={() => props.onMovieSelect()}>X</Close>
         </>
       ) : (
-        "Loading..."
+        
       )}
     </Container>
   );

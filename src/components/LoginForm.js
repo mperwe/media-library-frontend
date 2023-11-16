@@ -26,33 +26,33 @@ const LoginButton = styled.button`
 `;
 
 const LoginForm = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
 
-  const handleLogin = () => {
-    // Add your login logic here
-    console.log("User logged in:", { username, password });
-  };
+    const handleLogin = () => {
+        // My logic
+        console.log("User logged in:", { username, password });
+    };
 
-  return (
-    <LoginFormContainer>
-      <form>
-        <LoginFormInput
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <LoginFormInput
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <LoginButton onClick={handleLogin}>Login</LoginButton>
-      </form>
-    </LoginFormContainer>
-  );
+    return (
+        <LoginFormContainer>
+            <form>
+                <LoginFormInput
+                    type="text"
+                    placeholder="Username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                />
+                <LoginFormInput
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                <LoginButton onClick={handleLogin}>Login</LoginButton>
+            </form>
+        </LoginFormContainer>
+    );
 };
 
 export default LoginForm;
