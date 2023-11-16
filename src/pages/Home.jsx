@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import styled from "styled-components";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { API_URL } from '../utils/constants'
 
 const Container = styled.div`
@@ -91,21 +94,33 @@ const Home = () => {
   const [registerUsername, setRegisterUsername] = useState("");
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
+  const navigate = useNavigate()
 
-  const handleRegisterFormSubmit = (e) => {
+  const handleRegisterFormSubmit = async(e) => {
     e.preventDefault();
     console.log("User registered:", {
       username: registerUsername,
       email: registerEmail,
       password: registerPassword,
     });
-    if (registerEmail && registerPassword && registerUsername) {
-      const result = axios.post(`${API_URL}/auth/register`, {
-        username: registerUsername,
-        password: registerPassword,
-        email: registerEmail
-      })
+    try {
+      if (registerEmail && registerPassword && registerUsername) {
+        const result = await axios.post(`${API_URL}/auth/register`, {
+          username: registerUsername,
+          password: registerPassword,
+          email: registerEmail
+        })
+        console.log('rre', result)
+        if(result.status===201) {
+          navigate('/login')
+        } else {
+          toast('User registration failed, contact Administrator')
+        }
+      }
+    } catch (error) {
+      toast('User registration failed, contact Administrator')
     }
+
   };
 
 
@@ -148,6 +163,7 @@ const Home = () => {
           </BackgroundCard>
         </RegisterForm>
       </RegisterFormContainer>
+      <ToastContainer />
     </Container>
   )
 }
