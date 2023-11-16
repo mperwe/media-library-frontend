@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import styled from "styled-components";
+import { API_URL } from '../utils/constants'
 
 const Container = styled.div`
     display: flex;
@@ -99,7 +100,7 @@ const Home = () => {
       password: registerPassword,
     });
     if (registerEmail && registerPassword && registerUsername) {
-      const result = axios.post('http://localhost:4100/auth/register', {
+      const result = axios.post(`${API_URL}/auth/register`, {
         username: registerUsername,
         password: registerPassword,
         email: registerEmail
