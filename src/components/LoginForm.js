@@ -1,15 +1,25 @@
 // LoginForm.js
 
 import React, { useState } from "react";
+import axios from "axios";
+import { API_URL } from "../utils/constants";
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 import styled from "styled-components";
 
-
-const LoginFormContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
+const LoginFormContainer = styled.form`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;  // Align to the right
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+    background-image: url('/moviebackground.jpg');
+    background-size: cover;
+    background-position: center;
+    justify-content: start;
 `;
+
 
 const LoginFormInput = styled.input`
   margin-bottom: 10px;
@@ -17,7 +27,7 @@ const LoginFormInput = styled.input`
 `;
 
 const LoginButton = styled.button`
-  background-color: #3498db;
+  background-color: #2ecc71;
   color: white;
   padding: 10px 15px;
   border: none;
@@ -25,34 +35,71 @@ const LoginButton = styled.button`
   cursor: pointer;
 `;
 
+
+const BackgroundCard = styled.div`
+  width: 38%;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;  // Set the background color to white
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  // Optional: Add a box shadow for a card-like appearance
+  height: 40vh;
+`;
+
+const LoginFormElement = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+`
+
 const LoginForm = () => {
-    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleLogin = () => {
-        // My logic
-        console.log("User logged in:", { username, password });
+    const navigate = useNavigate()
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        try {
+            if (email && password) {
+                const result = await axios.post(`${API_URL}/auth/login`, {
+                    password: password,
+                    email: email
+                })
+                if (result && result.data?.token) {
+                    navigate('/dashboard')
+                    localStorage.setItem('token', result.data.token)
+                } else {
+                    toast('User Login failed, contact Administrator')
+                }
+            }
+        } catch (error) {
+            toast('User Login failed, contact Administrator')
+        }
+
     };
 
     return (
-        <LoginFormContainer>
-            <form>
-                <LoginFormInput
-                    type="text"
-                    placeholder="Username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-                <LoginFormInput
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <LoginButton onClick={handleLogin}>Login</LoginButton>
-            </form>
+        <LoginFormContainer onSubmit={handleLogin}>
+            <LoginFormElement>
+                <BackgroundCard>
+                    <LoginFormInput
+                        type="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+                    <LoginFormInput
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                    <LoginButton type="submit">Login</LoginButton>
+                </BackgroundCard>
+            </LoginFormElement>
         </LoginFormContainer>
     );
-};
-
+}
 export default LoginForm;

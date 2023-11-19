@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from "styled-components";
 import Axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
     display: flex;
@@ -13,7 +14,7 @@ const AppName = styled.div`
   align-items: center;
 `;
 
-const Header = styled.div`
+const HeaderContainer = styled.div`
   background-color: black;
   color: white;
   display: flex;
@@ -66,7 +67,12 @@ const Dashboard = () => {
   const [movieList, updateMovieList] = useState([]);
   // eslint-disable-next-line
   const [selectedMovie, onMovieSelect] = useState();
-
+  const navigate = useNavigate()
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/")
+  }
+  
   const fetchData = async (searchString) => {
     const backendUrl = "http://localhost:4100/movies/";
     const response = await Axios.get(backendUrl);
@@ -80,9 +86,8 @@ const Dashboard = () => {
   };
 
   return (
-    <>
       <Container>
-        <Header>
+        <HeaderContainer>
           <AppName>
             <MovieImage src="logo12.jpg" />
             Frank's Movie Room
@@ -94,12 +99,11 @@ const Dashboard = () => {
               onChange={onTextChange}
             />
           </SearchBox>
-          <RegisterButton>
+          <RegisterButton onClick={handleLogout}>
             Logout
           </RegisterButton>
-        </Header>
+        </HeaderContainer>
       </Container>
-    </>
   )
 }
 
