@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from "styled-components";
-import Axios from "axios";
+import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import MovieComponent from '../components/MovieComponent';
 
 const Container = styled.div`
     display: flex;
@@ -61,6 +62,11 @@ const RegisterButton = styled.button`
   cursor: pointer;
 `;
 
+const MovieContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
 const Dashboard = () => {
   const [searchQuery, updateSearchQuery] = useState("");
   // eslint-disable-next-line
@@ -73,17 +79,38 @@ const Dashboard = () => {
     navigate("/")
   }
   
-  const fetchData = async (searchString) => {
+  const searchData = async (searchString) => {
     const backendUrl = "http://localhost:4100/movies/";
-    const response = await Axios.get(backendUrl);
-    updateMovieList(response.data.Search);
+    const response = await axios.get(backendUrl);
+    const mvlist = [
+      {
+        Title: 'test',
+        Year: 2022,
+        imdbID: 202,
+        Type: 'horror',
+        Poster: 'tsesstUser'
+      }
+    ]
+    updateMovieList(mvlist);
   };
 
   const onTextChange = (e) => {
     onMovieSelect("");
     updateSearchQuery(e.target.value);
-    fetchData(e.target.value);
+    searchData(e.target.value);
   };
+
+  useEffect(() => {
+    async function fetchMovieData() {
+      const backendUrl = "http://localhost:4100/movies/";
+      const response = await axios.get(backendUrl);
+      console.log('moviews', response)
+      if(response && response.data) {
+        updateMovieList(response.data)
+      }
+    }
+    fetchMovieData();
+  }, [])
 
   return (
       <Container>
@@ -103,6 +130,11 @@ const Dashboard = () => {
             Logout
           </RegisterButton>
         </HeaderContainer>
+        <MovieContainer>
+        {movieList.map((movie, idx)=> (
+          <MovieComponent key={idx} movie={movie} onMovieSelect={onMovieSelect}/>
+        )
+        )}</MovieContainer>
       </Container>
   )
 }
