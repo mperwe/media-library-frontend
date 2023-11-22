@@ -6,7 +6,7 @@ Welcome to our Video Library Platform! This platform allows users to create acco
 -Features
 -Getting Started
 -Prerequisites
-Installation
+-Installation
 #Usage
 -Creating an Account
 -Logging In
@@ -27,5 +27,8 @@ Our Video Library Platform is a user-friendly and feature-rich application that 
 #Prerequisites
 #Before you begin, ensure you have the following:
 -Node.js installed
--npm (Node Package Manager) installed
--Postgress database
+-React
+-npm (Node Package Manager)
+-Prisma
+-Postman
+-PostgressSQL

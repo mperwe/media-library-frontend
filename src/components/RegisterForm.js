@@ -17,7 +17,7 @@ const RegisterButton = styled.button`
 const RegisterFormContainer = styled.form`
     display: flex;
     flex-direction: column;
-    align-items: flex-end;  // Align to the right
+    align-items: flex-end;
     justify-content: center;
     height: 100vh;
     padding: 20px;
@@ -33,19 +33,19 @@ const RegisterFormElement = styled.div`
     align-items: flex-end;
 `
 const RegisterFormInput = styled.input`
-  margin-top: 30px;
+  margin-top: 9px;
   margin-bottom: 10px;
   padding: 15px;
-  width: 88%;
+  width: 80%;
 `;
 
 const BackgroundCard = styled.div`
   width: 38%;
   padding: 20px;
   border-radius: 10px;
-  background-color: white;  // Set the background color to white
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  // Optional: Add a box shadow for a card-like appearance
-  height: 40vh;
+  background-color: white;  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  height: 30vh;
 `;
 
 const RegisterForm = () => {
@@ -81,6 +81,7 @@ const RegisterForm = () => {
         <RegisterFormContainer onSubmit={handleRegisterFormSubmit}>
             <RegisterFormElement >
                 <BackgroundCard>
+               
                     <RegisterFormInput
                         type="text"
                         placeholder="Username"

@@ -9,17 +9,19 @@ import styled from "styled-components";
 
 const LoginFormContainer = styled.form`
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;  // Align to the right
     justify-content: center;
+    padding: 10px;
     height: 100vh;
-    padding: 20px;
     background-image: url('/moviebackground.jpg');
     background-size: cover;
     background-position: center;
-    justify-content: start;
 `;
 
+const LoginFormElement = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;  // Center the form elements horizontally
+`;
 
 const LoginFormInput = styled.input`
   margin-bottom: 10px;
@@ -35,27 +37,21 @@ const LoginButton = styled.button`
   cursor: pointer;
 `;
 
-
 const BackgroundCard = styled.div`
-  width: 38%;
-  padding: 20px;
+  width: auto;
+  padding: 25px;
+  align-items: center;
   border-radius: 10px;
-  background-color: white;  // Set the background color to white
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  // Optional: Add a box shadow for a card-like appearance
-  height: 40vh;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: auto;
 `;
-
-const LoginFormElement = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-`
 
 const LoginForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -66,16 +62,15 @@ const LoginForm = () => {
                     email: email
                 })
                 if (result && result.data?.token) {
-                    navigate('/dashboard')
-                    localStorage.setItem('token', result.data.token)
+                    navigate('/dashboard');
+                    localStorage.setItem('token', result.data.token);
                 } else {
-                    toast('User Login failed, contact Administrator')
+                    toast('User Login failed, contact Administrator');
                 }
             }
         } catch (error) {
-            toast('User Login failed, contact Administrator')
+            toast('User Login failed, contact Administrator');
         }
-
     };
 
     return (
@@ -102,4 +97,5 @@ const LoginForm = () => {
         </LoginFormContainer>
     );
 }
+
 export default LoginForm;

@@ -8,7 +8,8 @@ export const API_KEY = "a9118a3a";
 function App() {
   return (
     <Router>
-      <Routes>
+
+        <Routes>
         <Route path="/" element={<Home />} />
         <Route path='/dashboard' element={<Dashboard />} />
       </Routes>
