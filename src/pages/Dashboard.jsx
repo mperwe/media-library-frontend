@@ -81,6 +81,7 @@ const Dashboard = () => {
   
   const searchData = async (searchString) => {
     const backendUrl = "http://localhost:4100/movies/";
+    // eslint-disable-next-line
     const response = await axios.get(backendUrl);
     const mvlist = [
       {
@@ -88,7 +89,7 @@ const Dashboard = () => {
         Year: 2022,
         imdbID: 202,
         Type: 'horror',
-        Poster: 'tsesstUser'
+        Poster: 'User'
       }
     ]
     updateMovieList(mvlist);

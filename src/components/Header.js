@@ -1,6 +1,4 @@
-import React, { useState } from 'react'
 import styled from "styled-components";
-
 const AppName = styled.div`
   display: flex;
   flex-direction: row;

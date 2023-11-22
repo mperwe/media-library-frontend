@@ -1,28 +1,60 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import styled from "styled-components";
 import { ToastContainer } from 'react-toastify';
-import Footer from '../components/Footer'
+import Footer from '../components/Footer';
 import Header from '../components/Header';
 import LoginForm from '../components/LoginForm';
-import RegisterForm from '../components/RegisterForm'
+import RegisterForm from '../components/RegisterForm';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Container = styled.div`
     display: flex;
     flex-direction: column;
+    position: relative;
+    background-size: cover;
+    height: 100vh;
 `;
 
+const TextMessage = styled.div`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; 
+    font-size: 2vw; 
+    text-align: center;
+    font-family: 'Your Preferred Font', sans-serif; 
+    font-weight: bold; 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); // Add text shadow as needed
+    
+    @keyframes moveBanner {
+      0% {
+        transform: translate(-50%, -50%) translateX(-100%);
+      }
+      100% {
+        transform: translate(-50%, -50%) translateX(100%);
+      }
+    }
+    // Add other styles for your text message here
+`;
+
+
+
+
 const Home = () => {
-  const [showLogin, setShowLogin] = useState(false)
+  const [showLogin, setShowLogin] = useState(false);
 
   return (
     <Container>
       <Header showLogin={showLogin} setShowLogin={setShowLogin}/>
-      {showLogin ? <LoginForm/>:<RegisterForm />}
+      {showLogin ? <LoginForm/> : <RegisterForm />}
+      <TextMessage>Your best local and international collection. All here from €4,99.</TextMessage>
       <Footer />
       <ToastContainer />
     </Container>
-  )
-}
+
+    
+  );
+};
 
 export default Home;

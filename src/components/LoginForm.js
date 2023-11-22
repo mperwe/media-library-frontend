@@ -12,7 +12,7 @@ const LoginFormContainer = styled.form`
     justify-content: center;
     padding: 10px;
     height: 100vh;
-    background-image: url('/moviebackground.jpg');
+    background-image: url('/moviebg2.jpg');
     background-size: cover;
     background-position: center;
 `;
@@ -20,7 +20,7 @@ const LoginFormContainer = styled.form`
 const LoginFormElement = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;  // Center the form elements horizontally
+    align-items: center; 
 `;
 
 const LoginFormInput = styled.input`
