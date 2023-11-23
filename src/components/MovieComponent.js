@@ -2,16 +2,17 @@ import React from "react";
 import styled from "styled-components";
 
 const MovieContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  width: 280px;
-  box-shadow: 0 3px 10px 0 #aaa;
-  cursor: pointer;
+display: flex;
+flex-direction: column;
+padding: 20px;
+width: 344px;
+
+box-shadow: 0 3px 10px 0 black;
+cursor: pointer;
 `;
 const CoverImage = styled.img`
   object-fit: cover;
-  height: 362px;
+  height: 370px;
 `;
 const MovieName = styled.span`
   font-size: 18px;
@@ -37,13 +38,13 @@ const MovieInfo = styled.span`
   text-overflow: ellipsis;
 `;
 const MovieComponent = ({ movie, onMovieSelect }) => {
-  console.log('mov', movie)
+  
   const { title, price, rating, year, genre, imageUrl, id } = movie;
 
   return (
     <MovieContainer
       onClick={() => {
-        onMovieSelect(id);
+        onMovieSelect(id);  
         window.scrollTo({ top: 0, behavior: "smooth" });
       }}
     >

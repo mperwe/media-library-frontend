@@ -3,6 +3,7 @@ import styled from "styled-components";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import MovieComponent from '../components/MovieComponent';
+import MovieInfoComponent from '../components/MovieInfoComponent';
 
 const Container = styled.div`
     display: flex;
@@ -121,6 +122,7 @@ const Dashboard = () => {
             Frank's Movie Room
           </AppName>
           <SearchBox>
+          
             <SearchInput
               placeholder="Search Movie"
               value={searchQuery}

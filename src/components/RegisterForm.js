@@ -33,10 +33,10 @@ const RegisterFormElement = styled.div`
     align-items: flex-end;
 `
 const RegisterFormInput = styled.input`
-  margin-top: 9px;
+  margin-top: 10px;
   margin-bottom: 10px;
   padding: 15px;
-  width: 80%;
+  width: 87%;
 `;
 
 const BackgroundCard = styled.div`

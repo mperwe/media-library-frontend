@@ -66,6 +66,7 @@ const MovieInfoComponent = (props) => {
       backendUrl.replace(":id", selectedMovie),
     ).then((response) => setMovieInfo(response.data));
   }, [selectedMovie]);
+
   return (
     <Container>
       {movieInfo ? (
@@ -109,7 +110,7 @@ const MovieInfoComponent = (props) => {
           <Close onClick={() => props.onMovieSelect()}>X</Close>
         </>
       ) : (
-        
+        "Loading..."
       )}
     </Container>
   );

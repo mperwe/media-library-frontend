@@ -10,11 +10,12 @@ import styled from "styled-components";
 const LoginFormContainer = styled.form`
     display: flex;
     justify-content: center;
-    padding: 20px;
+    padding: 5px;
     height: 100vh;
     background-image: url('/moviebg5.jpg');
     background-size: cover;
     background-position: center;
+    
 `;
 
 const LoginFormElement = styled.div`
@@ -26,6 +27,7 @@ const LoginFormElement = styled.div`
 const LoginFormInput = styled.input`
   margin-bottom: 10px;
   padding: 8px;
+  
 `;
 
 const LoginButton = styled.button`
@@ -35,6 +37,7 @@ const LoginButton = styled.button`
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  align-items: center; 
 `;
 
 const BackgroundCard = styled.div`
