@@ -10,9 +10,9 @@ import styled from "styled-components";
 const LoginFormContainer = styled.form`
     display: flex;
     justify-content: center;
-    padding: 10px;
+    padding: 20px;
     height: 100vh;
-    background-image: url('/moviebg2.jpg');
+    background-image: url('/moviebg5.jpg');
     background-size: cover;
     background-position: center;
 `;
