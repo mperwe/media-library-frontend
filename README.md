@@ -11,4 +11,3 @@ Welcome to our Video Library Platform! This platform allows users to create acco
 -Logging In
 -Browsing Movies
 -Watching Movies
-

@@ -26,20 +26,7 @@ const TextMessage = styled.div`
     font-family: 'Your Preferred Font', sans-serif; 
     font-weight: bold; 
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); // Add text shadow as needed
-    
-    @keyframes moveBanner {
-      0% {
-        transform: translate(-50%, -50%) translateX(-100%);
-      }
-      100% {
-        transform: translate(-50%, -50%) translateX(100%);
-      }
-    }
-    // Add other styles for your text message here
 `;
-
-
-
 
 const Home = () => {
   const [showLogin, setShowLogin] = useState(false);
