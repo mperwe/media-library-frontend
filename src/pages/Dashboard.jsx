@@ -3,7 +3,7 @@ import styled from "styled-components";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import MovieComponent from '../components/MovieComponent';
-import MovieInfoComponent from '../components/MovieInfoComponent';
+//import MovieInfoComponent from '../components/MovieInfoComponent';
 
 const Container = styled.div`
     display: flex;
@@ -102,17 +102,34 @@ const Dashboard = () => {
     searchData(e.target.value);
   };
 
+  //useEffect(() => {
+    //async function fetchMovieData() {
+      //const backendUrl = "http://localhost:4100/movies/";
+      //const response = await axios.get(backendUrl);
+      //console.log('moviews', response)
+      //if(response && response.data) {
+        //updateMovieList(response.data)
+      //}
+   // }
+    //fetchMovieData();
+  //}, [])
+
   useEffect(() => {
     async function fetchMovieData() {
-      const backendUrl = "http://localhost:4100/movies/";
-      const response = await axios.get(backendUrl);
-      console.log('moviews', response)
-      if(response && response.data) {
-        updateMovieList(response.data)
+      try {
+        const backendUrl = `http://localhost:4100/movies?search=${searchQuery}`;
+        const response = await axios.get(backendUrl);
+  
+        if (response && response.data) {
+          updateMovieList(response.data);
+        }
+      } catch (error) {
+        console.error("Error fetching movie data:", error);
       }
     }
+  
     fetchMovieData();
-  }, [])
+  }, [searchQuery]);
 
   return (
       <Container>
