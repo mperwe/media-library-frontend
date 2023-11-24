@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react'
-import styled from "styled-components";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import MovieComponent from '../components/MovieComponent';
-//import MovieInfoComponent from '../components/MovieInfoComponent';
 
 const Container = styled.div`
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 `;
 
 const AppName = styled.div`
@@ -15,6 +14,7 @@ const AppName = styled.div`
   flex-direction: row;
   align-items: center;
 `;
+
 
 const HeaderContainer = styled.div`
   background-color: black;
@@ -35,7 +35,7 @@ const SearchBox = styled.div`
   padding: 10px 10px;
   border-radius: 6px;
   margin-left: 20px;
-  width: 50%;
+  width: 30%;
   background-color: white;
 `;
 
@@ -43,7 +43,7 @@ const MovieImage = styled.img`
   width: 55px;
   height: 48px;
   margin: 15px;
-`;
+ `;
 
 const SearchInput = styled.input`
   color: black;
@@ -65,23 +65,24 @@ const RegisterButton = styled.button`
 
 const MovieContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 `;
 
 const Dashboard = () => {
-  const [searchQuery, updateSearchQuery] = useState("");
-  // eslint-disable-next-line
+  const [searchQuery, updateSearchQuery] = useState('');
   const [movieList, updateMovieList] = useState([]);
   // eslint-disable-next-line
   const [selectedMovie, onMovieSelect] = useState();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    navigate("/")
-  }
-  
+    localStorage.removeItem('token');
+    navigate('/');
+  };
+
   const searchData = async (searchString) => {
-    const backendUrl = "http://localhost:4100/movies/";
+    const backendUrl = 'http://localhost:4100/movies/';
     // eslint-disable-next-line
     const response = await axios.get(backendUrl);
     const mvlist = [
@@ -90,73 +91,60 @@ const Dashboard = () => {
         Year: 2022,
         imdbID: 202,
         Type: 'horror',
-        Poster: 'User'
-      }
-    ]
+        Poster: 'User',
+      },
+    ];
     updateMovieList(mvlist);
   };
 
   const onTextChange = (e) => {
-    onMovieSelect("");
+    onMovieSelect('');
     updateSearchQuery(e.target.value);
     searchData(e.target.value);
   };
-
-  //useEffect(() => {
-    //async function fetchMovieData() {
-      //const backendUrl = "http://localhost:4100/movies/";
-      //const response = await axios.get(backendUrl);
-      //console.log('moviews', response)
-      //if(response && response.data) {
-        //updateMovieList(response.data)
-      //}
-   // }
-    //fetchMovieData();
-  //}, [])
 
   useEffect(() => {
     async function fetchMovieData() {
       try {
         const backendUrl = `http://localhost:4100/movies?search=${searchQuery}`;
         const response = await axios.get(backendUrl);
-  
+
         if (response && response.data) {
           updateMovieList(response.data);
         }
       } catch (error) {
-        console.error("Error fetching movie data:", error);
+        console.error('Error fetching movie data:', error);
       }
     }
-  
+
     fetchMovieData();
   }, [searchQuery]);
 
   return (
-      <Container>
-        <HeaderContainer>
-          <AppName>
-            <MovieImage src="logo12.jpg" />
-            Frank's Movie Room
-          </AppName>
-          <SearchBox>
-          
-            <SearchInput
-              placeholder="Search Movie"
-              value={searchQuery}
-              onChange={onTextChange}
-            />
-          </SearchBox>
-          <RegisterButton onClick={handleLogout}>
-            Logout
-          </RegisterButton>
-        </HeaderContainer>
-        <MovieContainer>
-        {movieList.map((movie, idx)=> (
-          <MovieComponent key={idx} movie={movie} onMovieSelect={onMovieSelect}/>
-        )
-        )}</MovieContainer>
-      </Container>
-  )
-}
+    <Container>
+      <HeaderContainer>
+        <AppName>
+          <MovieImage src="logo12.jpg" alt="Movie Logo" />
+          Frank's Movie Room
+        </AppName>
+        <SearchBox>
+          <SearchInput
+            placeholder="Search Movie"
+            value={searchQuery}
+            onChange={onTextChange}
+          />
+        </SearchBox>
+        <RegisterButton onClick={handleLogout}>Logout</RegisterButton>
+      </HeaderContainer>
+      <MovieContainer>
+        {movieList.map((movie, idx) => (
+          <MovieComponent key={idx} movie={movie} onMovieSelect={onMovieSelect} />
+        ))}
+      </MovieContainer>
+    </Container>
+  );
+};
+
+
 
 export default Dashboard;

@@ -21,8 +21,8 @@ const InfoColumn = styled.div`
 `;
 const MovieName = styled.span`
   font-size: 22px;
-  font-weight: 600;
-  color: black;
+  font-weight: 400;
+
   margin: 15px 0;
   white-space: nowrap;
   overflow: hidden;
