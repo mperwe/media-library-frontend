@@ -72,6 +72,7 @@ const MovieContainer = styled.div`
 const Dashboard = () => {
   const [searchQuery, updateSearchQuery] = useState('');
   const [movieList, updateMovieList] = useState([]);
+  // eslint-disable-next-line
   const [selectedMovie, onMovieSelect] = useState();
   const navigate = useNavigate();
 
@@ -82,6 +83,7 @@ const Dashboard = () => {
 
   const searchData = async (searchString) => {
     const backendUrl = 'http://localhost:4100/movies/';
+    // eslint-disable-next-line
     const response = await axios.get(backendUrl);
     const mvlist = [
       {
