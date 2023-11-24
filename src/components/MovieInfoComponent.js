@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
-import { API_KEY } from "../App";
+//import { API_KEY } from "../App";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -66,6 +66,7 @@ const MovieInfoComponent = (props) => {
       backendUrl.replace(":id", selectedMovie),
     ).then((response) => setMovieInfo(response.data));
   }, [selectedMovie]);
+
   return (
     <Container>
       {movieInfo ? (
@@ -109,7 +110,7 @@ const MovieInfoComponent = (props) => {
           <Close onClick={() => props.onMovieSelect()}>X</Close>
         </>
       ) : (
-        
+        "Loading..."
       )}
     </Container>
   );

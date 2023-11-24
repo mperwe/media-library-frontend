@@ -1,6 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from "styled-components";
-import Axios from "axios";
+import axios from "axios";
+import { useNavigate } from 'react-router-dom';
+import MovieComponent from '../components/MovieComponent';
+//import MovieInfoComponent from '../components/MovieInfoComponent';
 
 const Container = styled.div`
     display: flex;
@@ -13,7 +16,7 @@ const AppName = styled.div`
   align-items: center;
 `;
 
-const Header = styled.div`
+const HeaderContainer = styled.div`
   background-color: black;
   color: white;
   display: flex;
@@ -60,46 +63,99 @@ const RegisterButton = styled.button`
   cursor: pointer;
 `;
 
+const MovieContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
 const Dashboard = () => {
   const [searchQuery, updateSearchQuery] = useState("");
   // eslint-disable-next-line
   const [movieList, updateMovieList] = useState([]);
   // eslint-disable-next-line
   const [selectedMovie, onMovieSelect] = useState();
-
-  const fetchData = async (searchString) => {
+  const navigate = useNavigate()
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/")
+  }
+  
+  const searchData = async (searchString) => {
     const backendUrl = "http://localhost:4100/movies/";
-    const response = await Axios.get(backendUrl);
-    updateMovieList(response.data.Search);
+    // eslint-disable-next-line
+    const response = await axios.get(backendUrl);
+    const mvlist = [
+      {
+        Title: 'test',
+        Year: 2022,
+        imdbID: 202,
+        Type: 'horror',
+        Poster: 'User'
+      }
+    ]
+    updateMovieList(mvlist);
   };
 
   const onTextChange = (e) => {
     onMovieSelect("");
     updateSearchQuery(e.target.value);
-    fetchData(e.target.value);
+    searchData(e.target.value);
   };
 
+  //useEffect(() => {
+    //async function fetchMovieData() {
+      //const backendUrl = "http://localhost:4100/movies/";
+      //const response = await axios.get(backendUrl);
+      //console.log('moviews', response)
+      //if(response && response.data) {
+        //updateMovieList(response.data)
+      //}
+   // }
+    //fetchMovieData();
+  //}, [])
+
+  useEffect(() => {
+    async function fetchMovieData() {
+      try {
+        const backendUrl = `http://localhost:4100/movies?search=${searchQuery}`;
+        const response = await axios.get(backendUrl);
+  
+        if (response && response.data) {
+          updateMovieList(response.data);
+        }
+      } catch (error) {
+        console.error("Error fetching movie data:", error);
+      }
+    }
+  
+    fetchMovieData();
+  }, [searchQuery]);
+
   return (
-    <>
       <Container>
-        <Header>
+        <HeaderContainer>
           <AppName>
             <MovieImage src="logo12.jpg" />
             Frank's Movie Room
           </AppName>
           <SearchBox>
+          
             <SearchInput
               placeholder="Search Movie"
               value={searchQuery}
               onChange={onTextChange}
             />
           </SearchBox>
-          <RegisterButton>
+          <RegisterButton onClick={handleLogout}>
             Logout
           </RegisterButton>
-        </Header>
+        </HeaderContainer>
+        <MovieContainer>
+        {movieList.map((movie, idx)=> (
+          <MovieComponent key={idx} movie={movie} onMovieSelect={onMovieSelect}/>
+        )
+        )}</MovieContainer>
       </Container>
-    </>
   )
 }
 
