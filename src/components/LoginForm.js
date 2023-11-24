@@ -76,30 +76,36 @@ const LoginForm = () => {
         }
     };
 
-    return (
-        
-        <LoginFormContainer onSubmit={handleLogin}>
-            <LoginFormElement>
-                <BackgroundCard>
-                    <LoginFormInput
-                        type="email"
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
-                    <LoginFormInput
-                        type="password"
-                        placeholder="Password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                    <LoginButton type="submit">Login</LoginButton>
-                </BackgroundCard>
-            </LoginFormElement>
-        </LoginFormContainer>
-    );
-}
-
-export default LoginForm;
+         
+        return (
+            <LoginFormContainer onSubmit={handleLogin}>
+                <LoginFormElement>
+                    <BackgroundCard>
+                        <p style={{ textAlign: 'center', fontSize: '18px', fontWeight: 'bold', marginBottom: '20px' }}>
+                            Welcome! Please login to access your account.
+                        </p>
+                        <LoginFormInput
+                            type="email"
+                            placeholder="Email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
+                        <LoginFormInput
+                            type="password"
+                            placeholder="Password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                        <LoginButton type="submit">Login</LoginButton>
+                        <p style={{ textAlign: 'center', marginTop: '20px' }}>
+                            Don't have an account? <a href="/">Sign up here</a>.
+                        </p>
+                    </BackgroundCard>
+                </LoginFormElement>
+            </LoginFormContainer>
+        );
+    }
+    
+    export default LoginForm;
