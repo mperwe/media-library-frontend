@@ -35,7 +35,7 @@ const Home = () => {
     <Container>
       <Header showLogin={showLogin} setShowLogin={setShowLogin}/>
       {showLogin ? <LoginForm/> : <RegisterForm />}
-      <TextMessage>Your best local and international collection. All here from €4,99.</TextMessage>
+      <TextMessage></TextMessage>
       <Footer />
       <ToastContainer />
     </Container>
