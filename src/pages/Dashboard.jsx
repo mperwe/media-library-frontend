@@ -29,6 +29,7 @@ const HeaderContainer = styled.div`
   box-shadow: 0 3px 6px 0 #555;
 `;
 
+
 const SearchBox = styled.div`
   display: flex;
   flex-direction: row;

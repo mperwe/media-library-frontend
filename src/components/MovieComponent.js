@@ -3,9 +3,8 @@ import styled from "styled-components";
 const MovieContainer = styled.div`
 display: flex;
 flex-direction: column;
-padding: 20px;
-width: 344px;
-
+padding: 45px;
+width: 250px;
 box-shadow: 0 3px 10px 0 black;
 cursor: pointer;
 `;
@@ -36,6 +35,8 @@ const MovieInfo = styled.span`
   text-transform: capitalize;
   text-overflow: ellipsis;
 `;
+
+
 const MovieComponent = ({ movie, onMovieSelect }) => {
   
   const { title, price, rating, year, genre, imageUrl, id } = movie;

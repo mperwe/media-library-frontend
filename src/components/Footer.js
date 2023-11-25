@@ -20,15 +20,12 @@ const Footer = () => {
   return (
       <FooterContainer>
         © {new Date().getFullYear()} Frank's Movie Room. All rights reserved.
-        <ContactInfo>
-          Contact: support@franksmovieroom.com
-        </ContactInfo>
-        <SocialMediaLinks>
+        <ContactInfo> Tell: +49 1523 5867655 | +256 759 555517 </ContactInfo>
+          <SocialMediaLinks>
           Follow us:
-          <a href="mailto:info@franksmovieroom.com">Email</a>
-          <a href="https://twitter.com/franksmovieroom" target="_blank" rel="noopener noreferrer">twitter</a>
-          <a href="https://www.facebook.com/franksmovieroom" target="_blank" rel="noopener noreferrer">Facebook</a>
-        </SocialMediaLinks>
+          <a href="mailto:info@franksmovieroom.com">frankmperwe@gmail.com</a>
+          <a href="https://twitter.com/franksmovieroom" target="_blank" rel="noopener noreferrer">mperwefrank</a>
+          </SocialMediaLinks>
       </FooterContainer>
   )
 }
