@@ -51,34 +51,29 @@ const BackgroundCard = styled.div`
 
 const AboveFormText = styled.p`
   color: #ffffff;
-  font-size: 40px;
+  font-size: 48px;
   font-family: Arial, Helvetica, sans-serif
   text-align: center;
+  font-weight: bold;
   margin-bottom: 10px;
 `;
 
 const AnotherAboveFormText = styled.p`
-  color: #e74c3c; 
-  font-size: 20px; 
+  color: white; 
+  font-size: 30px; 
   font-family: Arial, Helvetica, sans-serif
   text-align: center;
+  font-weight: bold;
   margin-bottom: 5px;
 `;
 
 const BelowFormText = styled.p`
-  color: #27ae60; 
-  font-size: 18px;
+  color: white; 
+  font-size: 20px;
   font-family: 'Verdana', sans-serif; 
   text-align: center;
+  font-weight: bold;
   margin-top: 5px;
-`;
-
-const BelowFormText2 = styled.p`
-color: white; 
-font-size: 20px;
-font-family: Arial, Helvetica, sans-serif
-text-align: center;
-margin-top: 5px;
 `;
 
 const RegisterForm = () => {
@@ -140,8 +135,8 @@ const RegisterForm = () => {
           <RegisterButton type="submit">Get Started</RegisterButton>
         </BackgroundCard>
       </RegisterFormElement>
-      <BelowFormText>Thank you for registering with us!</BelowFormText>
-      <BelowFormText2>Comfort is guaranteed.</BelowFormText2>
+      <BelowFormText>Comfort is guaranteed.</BelowFormText>
+      
     </RegisterFormContainer>
   );
 };
