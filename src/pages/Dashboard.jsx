@@ -36,7 +36,7 @@ const SearchBox = styled.div`
   padding: 10px 10px;
   border-radius: 6px;
   margin-left: 20px;
-  width: 30%;
+  
   background-color: white;
 `;
 
@@ -70,10 +70,19 @@ const MovieContainer = styled.div`
   justify-content: space-evenly;
 `;
 
+const SearchButton = styled.button`
+  background-color: #2ecc71;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: 10px;
+`;
+
 const Dashboard = () => {
   const [searchQuery, updateSearchQuery] = useState('');
   const [movieList, updateMovieList] = useState([]);
-  // eslint-disable-next-line
   const [selectedMovie, onMovieSelect] = useState();
   const navigate = useNavigate();
 
@@ -102,6 +111,10 @@ const Dashboard = () => {
     onMovieSelect('');
     updateSearchQuery(e.target.value);
     searchData(e.target.value);
+  };
+
+  const onSearchButtonClick = () => {
+    searchData(searchQuery);
   };
 
   useEffect(() => {
@@ -134,6 +147,7 @@ const Dashboard = () => {
             value={searchQuery}
             onChange={onTextChange}
           />
+          <SearchButton onClick={onSearchButtonClick}>Search</SearchButton>
         </SearchBox>
         <RegisterButton onClick={handleLogout}>Logout</RegisterButton>
       </HeaderContainer>
@@ -146,6 +160,6 @@ const Dashboard = () => {
   );
 };
 
-
+// ... (existing code)
 
 export default Dashboard;

@@ -19,12 +19,14 @@ const FooterContainer = styled.div`
 const Footer = () => {
   return (
       <FooterContainer>
-        © {new Date().getFullYear()} Frank's Movie Room. All rights reserved.
+       CONTACT US:
         <ContactInfo> Tell: +49 1523 5867655 | +256 759 555517 </ContactInfo>
+        <ContactInfo> Email: frankmperwe@gmail.com</ContactInfo>
           <SocialMediaLinks>
           Follow us:
-          <a href="mailto:info@franksmovieroom.com">frankmperwe@gmail.com</a>
-          <a href="https://twitter.com/franksmovieroom" target="_blank" rel="noopener noreferrer">mperwefrank</a>
+        <ContactInfo> twitter: @mperwefrank </ContactInfo>
+        © {new Date().getFullYear()} Frank's Movie Room. All rights reserved.
+               
           </SocialMediaLinks>
       </FooterContainer>
   )

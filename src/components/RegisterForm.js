@@ -77,7 +77,6 @@ const BelowFormText = styled.p`
 `;
 
 const RegisterForm = () => {
-  // Registration form
   const [registerUsername, setRegisterUsername] = useState('');
   const [registerEmail, setRegisterEmail] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
