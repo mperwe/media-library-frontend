@@ -4,6 +4,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import MovieComponent from '../components/MovieComponent';
 
+
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -48,11 +50,10 @@ const MovieImage = styled.img`
 
 const SearchInput = styled.input`
   color: black;
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 14px;
   border: none;
   outline: none;
-  margin-left: 15px;
+  margin-left: 1px;
 `;
 
 const RegisterButton = styled.button`
@@ -73,7 +74,7 @@ const MovieContainer = styled.div`
 const SearchButton = styled.button`
   background-color: #2ecc71;
   color: white;
-  padding: 4px 8px;
+  padding: 10px 4px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
