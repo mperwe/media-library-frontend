@@ -73,11 +73,11 @@ const MovieContainer = styled.div`
 const SearchButton = styled.button`
   background-color: #2ecc71;
   color: white;
-  padding: 10px 20px;
+  padding: 4px 8px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  margin-left: 10px;
+  margin-left: 1px;
 `;
 
 const Dashboard = () => {
