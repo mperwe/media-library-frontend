@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import styled from "styled-components";
 
+
 const LoginFormContainer = styled.form`
     display: flex;
     justify-content: center;
@@ -106,6 +107,8 @@ const LoginForm = () => {
                 </LoginFormElement>
             </LoginFormContainer>
         );
+
+        
     }
     
     export default LoginForm;
