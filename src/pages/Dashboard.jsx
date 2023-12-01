@@ -83,6 +83,8 @@ const SearchButton = styled.button`
 const Dashboard = () => {
   const [searchQuery, updateSearchQuery] = useState('');
   const [movieList, updateMovieList] = useState([]);
+  
+  // eslint-disable-next-line
   const [selectedMovie, onMovieSelect] = useState();
   const navigate = useNavigate();
 
