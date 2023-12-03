@@ -1,16 +1,17 @@
 import React from "react";
 import styled from "styled-components";
+
 const MovieContainer = styled.div`
 display: flex;
 flex-direction: column;
-padding: 45px;
-width: 250px;
+padding: 15px;
+width: 300px;
 box-shadow: 0 3px 10px 0 black;
 cursor: pointer;
 `;
 const CoverImage = styled.img`
   object-fit: cover;
-  height: 370px;
+  height: 420px;
 `;
 const MovieName = styled.span`
   font-size: 18px;
