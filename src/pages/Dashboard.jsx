@@ -2,10 +2,8 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import MovieComponent from '../components/MovieComponent'; 
+import MovieComponent from '../components/MovieComponent';
 import MovieInfoComponent from '../components/MovieInfoComponent';
-
-//export const API_KEY = 'http://localhost:4100/movies/';
 
 const Container = styled.div`
   display: flex;
@@ -64,7 +62,7 @@ const MovieImage = styled.img`
   margin: 15px;
  `;
 
- const SearchInput = styled.input`
+const SearchInput = styled.input`
  color: black;
  font-size: 14px;
  border: none;
@@ -87,28 +85,12 @@ const Placeholder = styled.img`
   opacity: 50%;
 `;
 
-const Dashboard = ()=>{
+const Dashboard = () => {
   const [searchQuery, updateSearchQuery] = useState("");
-
+  const [timeoutId, updateTimeoutId] = useState();
   const [movieList, updateMovieList] = useState([]);
   const [selectedMovie, onMovieSelect] = useState();
-
-  const [timeoutId, updateTimeoutId] = useState();
-
   const navigate = useNavigate();
-
-  const searchData = async (searchString) => {
-  const backendUrl = 'http://localhost:4100/movies/';
-  const response = await axios.get(backendUrl);
-  updateMovieList(response.data.Search);
-  
-};
-
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    navigate('/');
-  };
-
 
   const onTextChange = (e) => {
     onMovieSelect("")
@@ -117,7 +99,17 @@ const Dashboard = ()=>{
     const timeout = setTimeout(() => searchData(e.target.value), 500);
     updateTimeoutId(timeout);
   };
-   
+
+  const searchData = async (searchString) => {
+    const backendUrl = 'http://localhost:4100/movies/';
+    const response = await axios.get(backendUrl);
+    updateMovieList(response.data.Search);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');  navigate('/');
+  };
+
   const onSearchButtonClick = () => {
     searchData(searchQuery);
   };
@@ -147,16 +139,12 @@ const Dashboard = ()=>{
           Frank's Movie Room
         </AppName>
         <SearchBox>
-          <SearchInput
-            placeholder="Search Movie"
-            value={searchQuery}
-            onChange={onTextChange}
-          />
+          <SearchInput placeholder="Search Movie" value={searchQuery} onChange={onTextChange} />
           <SearchButton onClick={onSearchButtonClick}>Search</SearchButton>
         </SearchBox>
         <RegisterButton onClick={handleLogout}>Logout</RegisterButton>
       </HeaderContainer>
-      {selectedMovie && <MovieInfoComponent selectedMovie={selectedMovie} onMovieSelect={onMovieSelect}/>}
+      {selectedMovie && <MovieInfoComponent selectedMovie={selectedMovie} onMovieSelect={onMovieSelect} />}
       <MovieListContainer>
         {movieList?.length ? (
           movieList.map((movie, index) => (
@@ -168,7 +156,7 @@ const Dashboard = ()=>{
           ))
         ) : (
           <Placeholder src="/react-movie-app/movie-icon.svg" />
-        )}
+         )}
       </MovieListContainer>
     </Container>
   );
