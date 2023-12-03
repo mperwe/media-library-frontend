@@ -4,11 +4,10 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import MovieComponent from '../components/MovieComponent';
 
-
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+
 `;
 
 const AppName = styled.div`
@@ -17,7 +16,6 @@ const AppName = styled.div`
   align-items: center;
 `;
 
-
 const HeaderContainer = styled.div`
   background-color: black;
   color: white;
@@ -25,7 +23,7 @@ const HeaderContainer = styled.div`
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
-  padding: 10px;
+  padding: 5px;
   font-size: 25px;
   font-weight: bold;
   box-shadow: 0 3px 6px 0 #555;
@@ -162,7 +160,5 @@ const Dashboard = () => {
     </Container>
   );
 };
-
-// ... (existing code)
 
 export default Dashboard;
