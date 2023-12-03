@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Axios from "axios";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -73,9 +72,10 @@ const MovieInfoComponent = (props) => {
       console.error('Error searching movie data:', error);
     }
   };
-
+// eslint-disable-next-line
   useEffect(async() => {
       await getSingleMovie()
+      // eslint-disable-next-line
   }, [selectedMovie]);
 
 
