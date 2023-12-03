@@ -25,22 +25,21 @@ const TextMessage = styled.div`
     text-align: center;
     font-family: 'Your Preferred Font', sans-serif; 
     font-weight: bold; 
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); // Add text shadow as needed
-`;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); `;
 
 const Home = () => {
   const [showLogin, setShowLogin] = useState(false);
 
   return (
     <Container>
-      <Header showLogin={showLogin} setShowLogin={setShowLogin}/>
-      {showLogin ? <LoginForm/> : <RegisterForm />}
+      <Header showLogin={showLogin} setShowLogin={setShowLogin} />
+      {showLogin ? <LoginForm /> : <RegisterForm />}
       <TextMessage></TextMessage>
       <Footer />
       <ToastContainer />
     </Container>
 
-    
+
   );
 };
 
