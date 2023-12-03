@@ -100,11 +100,22 @@ const Dashboard = () => {
     updateTimeoutId(timeout);
   };
 
+
   const searchData = async (searchString) => {
-    const backendUrl = 'http://localhost:4100/movies/';
-    const response = await axios.get(backendUrl);
-    updateMovieList(response.data.Search);
+    try {
+      const backendUrl = `http://localhost:4100/movies/search?search=${encodeURIComponent(searchString)}`;
+      const response = await fetch(backendUrl);
+      if (response.ok) {
+        const data = await response.json();
+        updateMovieList(data);
+      } else {
+        console.error('Error searching movie data:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error searching movie data:', error);
+    }
   };
+  
 
   const handleLogout = () => {
     localStorage.removeItem('token');  navigate('/');
