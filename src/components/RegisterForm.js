@@ -76,26 +76,6 @@ const BelowFormText = styled.p`
   margin-top: 5px;
 `;
 
-
-const CardContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-top: 20px;
-  padding: 10px;
-  
-`;
-
-const Card = styled.div`
-  width: 300px;
-  height: 200px;
-  padding: 20px;
-  margin-left: 20px; 
-  border-radius: 10px;
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-`;
-
 const RegisterForm = () => {
   const [registerUsername, setRegisterUsername] = useState('');
   const [registerEmail, setRegisterEmail] = useState('');
