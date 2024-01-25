@@ -105,7 +105,7 @@ const RegisterForm = () => {
 
   return (
     <RegisterFormContainer onSubmit={handleRegisterFormSubmit}>
-      <AboveFormText>Your biggest local and international movie store.</AboveFormText>
+      <AboveFormText>"Movies for every mood, at your fingertips."</AboveFormText>
       <AnotherAboveFormText>Register and start your membership today</AnotherAboveFormText>
       
       <RegisterFormElement>

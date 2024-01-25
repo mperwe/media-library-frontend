@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import MovieComponent from '../components/MovieComponent';
 import MovieInfoComponent from '../components/MovieInfoComponent';
+import { API_URL } from "../utils/constants";
 
 const Container = styled.div`
   display: flex;
@@ -103,7 +104,7 @@ const Dashboard = () => {
 
   const searchData = async (searchString) => {
     try {
-      const backendUrl = `http://localhost:4100/movies/search?search=${encodeURIComponent(searchString)}`;
+      const backendUrl = `${API_URL}/movies/search?search=${encodeURIComponent(searchString)}`;
       const response = await fetch(backendUrl);
       if (response.ok) {
         const data = await response.json();
@@ -128,7 +129,7 @@ const Dashboard = () => {
   useEffect(() => {
     async function fetchMovieData() {
       try {
-        const backendUrl = `http://localhost:4100/movies?search=${searchQuery}`;
+        const backendUrl = `${API_URL}/movies?search=${searchQuery}`;
         const response = await axios.get(backendUrl);
 
         if (response && response.data) {
