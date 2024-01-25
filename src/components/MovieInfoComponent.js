@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { API_URL } from "../utils/constants";
 
 const Container = styled.div`
   display: flex;
@@ -60,7 +61,7 @@ const MovieInfoComponent = (props) => {
 
   const getSingleMovie = async() => {
     try {
-      const backendUrl="http://localhost:4100/movies/:id"
+      const backendUrl=`${API_URL}/movies/:id`
       const response = await fetch(backendUrl.replace(":id", selectedMovie));
       if (response.ok) {
         const data = await response.json();
