@@ -1,5 +1,6 @@
 import React from 'react'
 import '../components/footer.css'
+import '@fortawesome/fontawesome-free/css/all.css';
 
 const Footer = () => {
   return (
@@ -47,13 +48,16 @@ const Footer = () => {
 					<span>About the Library</span>
 					"Unlock endless entertainment with our movie library – where every genre finds its perfect picture!"
 				</p>
-
+               
 				<div class="footer-icons">
-
-					<a href="/"><i class="fa fa-facebook"></i></a>
-					<a href="/"><i class="fa fa-twitter"></i></a>
-					<a href="/"><i class="fa fa-linkedin"></i></a>
-					<a href="/"><i class="fa fa-github"></i></a>
+        <p class="footer-company-about">
+					<span>Follow Us</span>
+				</p>
+          
+					<a href="/"><i class="fa-brands fa-facebook"></i></a>
+					<a href="https://twitter.com/mperwefrank" target='_blank'><i class="fa-brands fa-twitter"></i></a>
+					<a href="https://www.linkedin.com/in/frank-mperwe-991ba6191/" target='_blank'><i class="fa-brands fa-linkedin"></i></a>
+					<a href="https://github.com/mperwe" target='_blank'><i class="fa-brands fa-github"></i></a>
 
 				</div>
 

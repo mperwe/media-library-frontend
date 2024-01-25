@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import MovieComponent from '../components/MovieComponent';
 import MovieInfoComponent from '../components/MovieInfoComponent';
 import { API_URL } from "../utils/constants";
+import Footer from '../components/Footer';
 
 const Container = styled.div`
   display: flex;
@@ -170,6 +171,7 @@ const Dashboard = () => {
           <Placeholder src="/react-movie-app/movie-icon.svg" />
          )}
       </MovieListContainer>
+      <Footer />
     </Container>
   );
 }
