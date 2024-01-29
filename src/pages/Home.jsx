@@ -33,7 +33,7 @@ const Home = () => {
   return (
     <Container>
       <Header showLogin={showLogin} setShowLogin={setShowLogin} />
-      {showLogin ? <LoginForm /> : <RegisterForm />}
+      {showLogin ? <LoginForm /> : <RegisterForm setShowLogin={setShowLogin} />}
       <TextMessage></TextMessage>
       <Footer />
       <ToastContainer />
