@@ -50,14 +50,14 @@ const Footer = () => {
 				</p>
                
 				<div class="footer-icons">
-        <p class="footer-company-about">
+       			 <p class="footer-company-about">
 					<span>Follow Us</span>
-				</p>
+					</p>
           
 					<a href="/"><i class="fa-brands fa-facebook"></i></a>
-					<a href="https://twitter.com/mperwefrank" target='_blank'><i class="fa-brands fa-twitter"></i></a>
-					<a href="https://www.linkedin.com/in/frank-mperwe-991ba6191/" target='_blank'><i class="fa-brands fa-linkedin"></i></a>
-					<a href="https://github.com/mperwe" target='_blank'><i class="fa-brands fa-github"></i></a>
+					<a href="https://twitter.com/mperwefrank" target='_blank' rel="noreferrer" ><i class="fa-brands fa-twitter"></i></a>
+					<a href="https://www.linkedin.com/in/frank-mperwe-991ba6191/" target='_blank' rel="noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+				    <a href="https://github.com/mperwe" target='_blank' rel="noreferrer"><i class="fa-brands fa-github"></i></a>
 
 				</div>
 

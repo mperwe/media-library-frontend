@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
@@ -57,7 +56,6 @@ const AboveFormText = styled.p`
   font-weight: bold;
   margin-bottom: 10px;
 `;
-
 const AnotherAboveFormText = styled.p`
   color: white; 
   font-size: 30px; 
@@ -76,11 +74,11 @@ const BelowFormText = styled.p`
   margin-top: 5px;
 `;
 
-const RegisterForm = () => {
+const RegisterForm = ({ setShowLogin }) => {
   const [registerUsername, setRegisterUsername] = useState('');
   const [registerEmail, setRegisterEmail] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
-  const navigate = useNavigate();
+
 
   const handleRegisterFormSubmit = async (e) => {
     e.preventDefault();
@@ -92,8 +90,8 @@ const RegisterForm = () => {
           email: registerEmail,
         });
         if (result && result.data?.token) {
-          navigate('/dashboard');
           localStorage.setItem('token', result.data.token);
+          setShowLogin(true)
         } else {
           toast('User registration failed, contact Administrator');
         }
