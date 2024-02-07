@@ -84,7 +84,7 @@ const RegisterForm = ({ setShowLogin }) => {
     e.preventDefault();
     try {
       if (registerEmail && registerPassword && registerUsername) {
-        const result = await axios.post(`${API_URL}/auth/register`, {
+        const result = await axios.post(`${API_URL}/users/signup`, {
           username: registerUsername,
           password: registerPassword,
           email: registerEmail,
