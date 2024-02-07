@@ -61,7 +61,7 @@ const LoginForm = () => {
         e.preventDefault();
         try {
             if (email && password) {
-                const result = await axios.post(`${API_URL}/auth/login`, {
+                const result = await axios.post(`${API_URL}/users/login`, {
                     password: password,
                     email: email
                 })

@@ -61,7 +61,7 @@ const MovieInfoComponent = (props) => {
 
   const getSingleMovie = async() => {
     try {
-      const backendUrl=`${API_URL}/movies/:id`
+      const backendUrl=`${API_URL}/movies/:movieId/ `
       const response = await fetch(backendUrl.replace(":id", selectedMovie));
       if (response.ok) {
         const data = await response.json();
