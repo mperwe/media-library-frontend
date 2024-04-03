@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import LoginForm from '../components/LoginForm';
 import RegisterForm from '../components/RegisterForm';
+import MenuBar from '../components/MenuBar';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Container = styled.div`
@@ -33,13 +34,12 @@ const Home = () => {
   return (
     <Container>
       <Header showLogin={showLogin} setShowLogin={setShowLogin} />
+      <MenuBar /> 
       {showLogin ? <LoginForm /> : <RegisterForm setShowLogin={setShowLogin} />}
       <TextMessage></TextMessage>
       <Footer />
-      <ToastContainer />
+           <ToastContainer />
     </Container>
-
-
   );
 };
 
