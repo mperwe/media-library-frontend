@@ -22,7 +22,7 @@ const TextMessage = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     color: white; 
-    font-size: 2vw; 
+    font-size: vw; 
     text-align: center;
     font-family: 'Your Preferred Font', sans-serif; 
     font-weight: bold; 
