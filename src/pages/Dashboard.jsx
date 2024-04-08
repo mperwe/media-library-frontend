@@ -6,6 +6,7 @@ import MovieComponent from '../components/MovieComponent';
 import MovieInfoComponent from '../components/MovieInfoComponent';
 import { API_URL } from "../utils/constants";
 import Footer from '../components/Footer';
+import MenuBar from '../components/MenuBar';
 
 const Container = styled.div`
   display: flex;
@@ -147,6 +148,7 @@ const Dashboard = () => {
   return (
     <Container>
       <HeaderContainer>
+      
         <AppName>
           <MovieImage src="logo12.jpg" alt="Movie Logo" />
           Frank's Movie Room
@@ -156,7 +158,9 @@ const Dashboard = () => {
           <SearchButton onClick={onSearchButtonClick}>Search</SearchButton>
         </SearchBox>
         <RegisterButton onClick={handleLogout}>Logout</RegisterButton>
+        
       </HeaderContainer>
+      <MenuBar /> 
       {selectedMovie && <MovieInfoComponent selectedMovie={selectedMovie} onMovieSelect={onMovieSelect} />}
       <MovieListContainer>
         {movieList?.length ? (
