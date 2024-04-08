@@ -22,8 +22,9 @@ const MenuBar = () => {
   return (
     <MenuContainer>
       <MenuItem href="/">Home</MenuItem> |
-      <MenuItem href="/">Media Center</MenuItem> |
-      <MenuItem href="/Dashboard">Movie List</MenuItem>
+      <MenuItem href="/dashboard">Movie List</MenuItem> |
+      <MenuItem href="/view">Join Us</MenuItem> 
+     
     </MenuContainer>
   );
 };
