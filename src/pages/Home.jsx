@@ -108,7 +108,7 @@ const Home = () => {
             <Card>
                 <CardTitle>Welcome!</CardTitle>
                 <CardContent>
-                   Page under construction .....
+                   Content under construction .....
                     <Slider {...settings}>
                         {images.map((image, index) => (
                             <img key={index} src={image} alt={`Slide ${index}`} />
@@ -116,51 +116,35 @@ const Home = () => {
                     </Slider>
                 </CardContent>
             </Card>
+
+           <hr style={{ borderTop: '1px solid black', margin: '20px auto' }} />
+
             <Title>Small Cards</Title>
             <SmallCardContainer>
                 <SmallCard>
                     <SmallCardTitle>Card 1</SmallCardTitle>
-                    <SmallCardContent>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</SmallCardContent>
+                    <SmallCardContent>Content under construction ......</SmallCardContent>
                     <SmallCardImage src={Image1} alt="Image 1" />
                 </SmallCard>
                 <SmallCard>
                     <SmallCardTitle>Card 2</SmallCardTitle>
-                    <SmallCardContent>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</SmallCardContent>
+                    <SmallCardContent>Content under construction .....</SmallCardContent>
                     <SmallCardImage src={Image2} alt="Image 2" />
                 </SmallCard>
                 <SmallCard>
                     <SmallCardTitle>Card 3</SmallCardTitle>
-                    <SmallCardContent>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</SmallCardContent>
+                    <SmallCardContent>Content under construction ......</SmallCardContent>
                     <SmallCardImage src={Image3} alt="Image 3" />
                 </SmallCard>
                 <SmallCard>
                     <SmallCardTitle>Card 4</SmallCardTitle>
-                    <SmallCardContent>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</SmallCardContent>
+                    <SmallCardContent>Content under construction ......</SmallCardContent>
                     <SmallCardImage src={Image1} alt="Image 4" />
                 </SmallCard>                        
             </SmallCardContainer>
-            <SmallCardContainer>
-                <SmallCard>
-                    <SmallCardTitle>Card 1</SmallCardTitle>
-                    <SmallCardContent>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</SmallCardContent>
-                    <SmallCardImage src={Image1} alt="Image 1" />
-                </SmallCard>
-                <SmallCard>
-                    <SmallCardTitle>Card 2</SmallCardTitle>
-                    <SmallCardContent>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</SmallCardContent>
-                    <SmallCardImage src={Image2} alt="Image 2" />
-                </SmallCard>
-                <SmallCard>
-                    <SmallCardTitle>Card 3</SmallCardTitle>
-                    <SmallCardContent>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</SmallCardContent>
-                    <SmallCardImage src={Image3} alt="Image 3" />
-                </SmallCard>
-                <SmallCard>
-                    <SmallCardTitle>Card 4</SmallCardTitle>
-                    <SmallCardContent>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</SmallCardContent>
-                    <SmallCardImage src={Image1} alt="Image 4" />
-                </SmallCard>                        
-            </SmallCardContainer>
+
+            <Title>Closing Title</Title>
+            <p>Content under construction ......</p>
 
             <TextMessage></TextMessage>
             <Footer />
