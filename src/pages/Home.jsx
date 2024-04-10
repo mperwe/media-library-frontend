@@ -20,6 +20,11 @@ const Container = styled.div`
     min-height: 100vh; /* Set minimum height to ensure content is fully visible */
 `;
 
+const Title = styled.h2`
+    text-align: center;
+    margin-top: 30px;
+`;
+
 const TextMessage = styled.div`
     position: absolute;
     top: 50%;
@@ -39,7 +44,7 @@ const Card = styled.div`
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 20px auto; /* Adjust margin */
-    max-width: 600px; /* Reduce the card size */
+    max-width: 1000px; /* Increase the card size */
 `;
 
 const CardTitle = styled.h2`
@@ -59,10 +64,21 @@ const SmallCardContainer = styled.div`
 `;
 
 const SmallCard = styled.div`
-    flex: 0 1 calc(33.33% - 10px);
+    flex: 0 1 calc(25% - 10px);
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+`;
+
+const SmallCardTitle = styled.h3`
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: center;
+`;
+
+const SmallCardContent = styled.p`
+    font-size: 12px;
+    text-align: center;
 `;
 
 const SmallCardImage = styled.img`
@@ -100,17 +116,52 @@ const Home = () => {
                     </Slider>
                 </CardContent>
             </Card>
+            <Title>Small Cards</Title>
             <SmallCardContainer>
                 <SmallCard>
+                    <SmallCardTitle>Card 1</SmallCardTitle>
+                    <SmallCardContent>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</SmallCardContent>
                     <SmallCardImage src={Image1} alt="Image 1" />
                 </SmallCard>
                 <SmallCard>
+                    <SmallCardTitle>Card 2</SmallCardTitle>
+                    <SmallCardContent>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</SmallCardContent>
                     <SmallCardImage src={Image2} alt="Image 2" />
                 </SmallCard>
                 <SmallCard>
+                    <SmallCardTitle>Card 3</SmallCardTitle>
+                    <SmallCardContent>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</SmallCardContent>
                     <SmallCardImage src={Image3} alt="Image 3" />
                 </SmallCard>
+                <SmallCard>
+                    <SmallCardTitle>Card 4</SmallCardTitle>
+                    <SmallCardContent>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</SmallCardContent>
+                    <SmallCardImage src={Image1} alt="Image 4" />
+                </SmallCard>                        
             </SmallCardContainer>
+            <SmallCardContainer>
+                <SmallCard>
+                    <SmallCardTitle>Card 1</SmallCardTitle>
+                    <SmallCardContent>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</SmallCardContent>
+                    <SmallCardImage src={Image1} alt="Image 1" />
+                </SmallCard>
+                <SmallCard>
+                    <SmallCardTitle>Card 2</SmallCardTitle>
+                    <SmallCardContent>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</SmallCardContent>
+                    <SmallCardImage src={Image2} alt="Image 2" />
+                </SmallCard>
+                <SmallCard>
+                    <SmallCardTitle>Card 3</SmallCardTitle>
+                    <SmallCardContent>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</SmallCardContent>
+                    <SmallCardImage src={Image3} alt="Image 3" />
+                </SmallCard>
+                <SmallCard>
+                    <SmallCardTitle>Card 4</SmallCardTitle>
+                    <SmallCardContent>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</SmallCardContent>
+                    <SmallCardImage src={Image1} alt="Image 4" />
+                </SmallCard>                        
+            </SmallCardContainer>
+
             <TextMessage></TextMessage>
             <Footer />
             <ToastContainer />
