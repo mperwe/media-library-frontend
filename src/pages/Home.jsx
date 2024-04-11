@@ -14,10 +14,14 @@ import Image3 from '../images/image3.png';
 
 const Container = styled.div`
     display: flex;
+    background-color: ;
     flex-direction: column;
     position: relative;
     background-size: cover;
-    min-height: 100vh; /* Set minimum height to ensure content is fully visible */
+    min-height: 100vh; 
+    height: 200px; /* Set a fixed height for all images */
+    border-radius: 10px;
+    object-fit: cover;
 `;
 
 const Title = styled.h2`
@@ -39,16 +43,17 @@ const TextMessage = styled.div`
 `;
 
 const Card = styled.div`
-    background-color: ;
+    background-color:  ;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 3px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 20px auto; /* Adjust margin */
-    max-width: 1000px; /* Increase the card size */
+    max-width: 1010px; /* Increase the card size */
+    object-fit: cover; 
 `;
 
 const CardTitle = styled.h2`
-    font-size: 24px;
+    font-size: 30px;
     margin-bottom: 10px;
     text-align: center;
 `;
@@ -83,7 +88,9 @@ const SmallCardContent = styled.p`
 
 const SmallCardImage = styled.img`
     width: 100%;
+    height: 200px; /* Set a fixed height for all images */
     border-radius: 10px;
+    object-fit: cover;
 `;
 
 const Home = () => {
@@ -120,6 +127,28 @@ const Home = () => {
            <hr style={{ borderTop: '1px solid black', margin: '20px auto' }} />
 
             <Title>Small Cards</Title>
+            <SmallCardContainer>
+                <SmallCard>
+                    <SmallCardTitle>Card 1</SmallCardTitle>
+                    <SmallCardContent>Content under construction ......</SmallCardContent>
+                    <SmallCardImage src={Image1} alt="Image 1" />
+                </SmallCard>
+                <SmallCard>
+                    <SmallCardTitle>Card 2</SmallCardTitle>
+                    <SmallCardContent>Content under construction .....</SmallCardContent>
+                    <SmallCardImage src={Image2} alt="Image 2" />
+                </SmallCard>
+                <SmallCard>
+                    <SmallCardTitle>Card 3</SmallCardTitle>
+                    <SmallCardContent>Content under construction ......</SmallCardContent>
+                    <SmallCardImage src={Image3} alt="Image 3" />
+                </SmallCard>
+                <SmallCard>
+                    <SmallCardTitle>Card 4</SmallCardTitle>
+                    <SmallCardContent>Content under construction ......</SmallCardContent>
+                    <SmallCardImage src={Image1} alt="Image 4" />
+                </SmallCard>                        
+            </SmallCardContainer>
             <SmallCardContainer>
                 <SmallCard>
                     <SmallCardTitle>Card 1</SmallCardTitle>
