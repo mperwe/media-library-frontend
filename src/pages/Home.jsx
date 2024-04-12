@@ -14,19 +14,27 @@ import Image3 from '../images/image3.png';
 
 const Container = styled.div`
     display: flex;
-    background-color: ;
+    background-color: #EAEDED ;
     flex-direction: column;
     position: relative;
     background-size: cover;
-    min-height: 100vh; 
-    height: 200px; /* Set a fixed height for all images */
+    min-height: 50vh; 
     border-radius: 10px;
     object-fit: cover;
+    background-image: url('/moviebg..jpg');
 `;
 
 const Title = styled.h2`
     text-align: center;
     margin-top: 30px;
+`;
+
+const DifferentTitle = styled.h2`
+    text-align: center;
+    margin-top: 0px; 
+    font-size: 50px; 
+    color: #78281F; 
+    font-family: 'Your Preferred Font', sans-serif; /* Different font family */
 `;
 
 const TextMessage = styled.div`
@@ -42,24 +50,16 @@ const TextMessage = styled.div`
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); 
 `;
 
-const Card = styled.div`
-    background-color:  ;
-    padding: 20px;
-    border-radius: 3px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 20px auto; /* Adjust margin */
-    max-width: 1010px; /* Increase the card size */
-    object-fit: cover; 
-`;
-
-const CardTitle = styled.h2`
-    font-size: 30px;
-    margin-bottom: 10px;
-    text-align: center;
-`;
-
-const CardContent = styled.div`
-    font-size: 18px;
+const LinkButton = styled.button`
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
 `;
 
 const SmallCardContainer = styled.div`
@@ -88,8 +88,8 @@ const SmallCardContent = styled.p`
 
 const SmallCardImage = styled.img`
     width: 100%;
-    height: 200px; /* Set a fixed height for all images */
-    border-radius: 10px;
+    height: 380px; 
+    border-radius: 50px;
     object-fit: cover;
 `;
 
@@ -112,21 +112,15 @@ const Home = () => {
         <Container>
             <Header showLogin={showLogin} setShowLogin={setShowLogin} />
             <MenuBar /> 
-            <Card>
-                <CardTitle>Welcome!</CardTitle>
-                <CardContent>
-                   Content under construction .....
-                    <Slider {...settings}>
-                        {images.map((image, index) => (
-                            <img key={index} src={image} alt={`Slide ${index}`} />
-                        ))}
-                    </Slider>
-                </CardContent>
-            </Card>
 
-           <hr style={{ borderTop: '1px solid black', margin: '20px auto' }} />
+            <hr style={{ borderTop: '1px solid black', margin: '20px auto' }} />
 
-            <Title>Small Cards</Title>
+          
+            <DifferentTitle>Engage Audiences Across Platforms</DifferentTitle>
+            {/* Link button */}
+            <LinkButton>Explore More</LinkButton>
+
+            <Title>"Escape into the world of film."</Title>
             <SmallCardContainer>
                 <SmallCard>
                     <SmallCardTitle>Card 1</SmallCardTitle>
