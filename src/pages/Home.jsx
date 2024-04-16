@@ -12,7 +12,7 @@ const Container = styled.div`
     min-height: 100vh;
     background-color: #EAEDED;
     background-size: cover;
-    background-image: url('/moviebg..jpg');
+    background-image: url('/moviebg11.jpg');
 `;
 
 const Content = styled.div`
