@@ -1,27 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from "styled-components";
 import { ToastContainer } from 'react-toastify';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import MenuBar from '../components/MenuBar';
 import 'react-toastify/dist/ReactToastify.css';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import Image1 from '../images/image1.png'; 
-import Image2 from '../images/image2.png';
-import Image3 from '../images/image3.png';
 
 const Container = styled.div`
     display: flex;
-    background-color: #EAEDED ;
     flex-direction: column;
-    position: relative;
+    min-height: 100vh;
+    background-color: #EAEDED;
     background-size: cover;
-    min-height: 50vh; 
-    border-radius: 10px;
-    object-fit: cover;
     background-image: url('/moviebg..jpg');
+`;
+
+const Content = styled.div`
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 `;
 
 const Title = styled.h2`
@@ -31,23 +31,10 @@ const Title = styled.h2`
 
 const DifferentTitle = styled.h2`
     text-align: center;
-    margin-top: 0px; 
-    font-size: 50px; 
-    color: #78281F; 
-    font-family: 'Your Preferred Font', sans-serif; /* Different font family */
-`;
-
-const TextMessage = styled.div`
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white; 
-    font-size: 4vw; 
-    text-align: center;
-    font-family: 'Your Preferred Font', sans-serif; 
-    font-weight: bold; 
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); 
+    margin-top: 0;
+    font-size: 2.5rem;
+    color: #78281F;
+    font-family: 'Your Preferred Font', sans-serif;
 `;
 
 const LinkButton = styled.button`
@@ -55,121 +42,24 @@ const LinkButton = styled.button`
     color: white;
     border: none;
     padding: 10px 20px;
-    font-size: 50px;
+    font-size: 1.5rem;
     border-radius: 5px;
     cursor: pointer;
-    margin: 20px auto;
-    display: block;
-`;
-
-const SmallCardContainer = styled.div`
-    display: flex;
-    justify-content: space-between;
     margin-top: 20px;
 `;
 
-const SmallCard = styled.div`
-    flex: 0 1 calc(25% - 10px);
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-`;
-
-const SmallCardTitle = styled.h3`
-    font-size: 16px;
-    margin-bottom: 10px;
-    text-align: center;
-`;
-
-const SmallCardContent = styled.p`
-    font-size: 12px;
-    text-align: center;
-`;
-
-const SmallCardImage = styled.img`
-    width: 100%;
-    height: 380px; 
-    border-radius: 50px;
-    object-fit: cover;
-`;
-
 const Home = () => {
-    const [showLogin, setShowLogin] = useState(false);
-
-    // Sample images for the carousel (imported from local files)
-    const images = [Image1, Image2, Image3];
-
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-    };
-
     return (
         <Container>
-            <Header showLogin={showLogin} setShowLogin={setShowLogin} />
+            <Header />
             <MenuBar /> 
 
-            <hr style={{ borderTop: '1px solid black', margin: '20px auto' }} />
+            <Content>
+                <DifferentTitle>Engage Audiences Across Platforms</DifferentTitle>
+                <LinkButton>Explore More</LinkButton>
+                <Title>"Escape into the world of film."</Title>
+            </Content>
 
-          
-            <DifferentTitle>Engage Audiences Across Platforms</DifferentTitle>
-            {/* Link button */}
-            <LinkButton>Explore More</LinkButton>
-
-            <Title>"Escape into the world of film."</Title>
-            <SmallCardContainer>
-                <SmallCard>
-                    <SmallCardTitle>Card 1</SmallCardTitle>
-                    <SmallCardContent>Content under construction ......</SmallCardContent>
-                    <SmallCardImage src={Image1} alt="Image 1" />
-                </SmallCard>
-                <SmallCard>
-                    <SmallCardTitle>Card 2</SmallCardTitle>
-                    <SmallCardContent>Content under construction .....</SmallCardContent>
-                    <SmallCardImage src={Image2} alt="Image 2" />
-                </SmallCard>
-                <SmallCard>
-                    <SmallCardTitle>Card 3</SmallCardTitle>
-                    <SmallCardContent>Content under construction ......</SmallCardContent>
-                    <SmallCardImage src={Image3} alt="Image 3" />
-                </SmallCard>
-                <SmallCard>
-                    <SmallCardTitle>Card 4</SmallCardTitle>
-                    <SmallCardContent>Content under construction ......</SmallCardContent>
-                    <SmallCardImage src={Image1} alt="Image 4" />
-                </SmallCard>                        
-            </SmallCardContainer>
-            <SmallCardContainer>
-                <SmallCard>
-                    <SmallCardTitle>Card 1</SmallCardTitle>
-                    <SmallCardContent>Content under construction ......</SmallCardContent>
-                    <SmallCardImage src={Image1} alt="Image 1" />
-                </SmallCard>
-                <SmallCard>
-                    <SmallCardTitle>Card 2</SmallCardTitle>
-                    <SmallCardContent>Content under construction .....</SmallCardContent>
-                    <SmallCardImage src={Image2} alt="Image 2" />
-                </SmallCard>
-                <SmallCard>
-                    <SmallCardTitle>Card 3</SmallCardTitle>
-                    <SmallCardContent>Content under construction ......</SmallCardContent>
-                    <SmallCardImage src={Image3} alt="Image 3" />
-                </SmallCard>
-                <SmallCard>
-                    <SmallCardTitle>Card 4</SmallCardTitle>
-                    <SmallCardContent>Content under construction ......</SmallCardContent>
-                    <SmallCardImage src={Image1} alt="Image 4" />
-                </SmallCard>                        
-            </SmallCardContainer>
-
-            <Title>Closing Title</Title>
-            <p>Content under construction ......</p>
-
-            <TextMessage></TextMessage>
             <Footer />
             <ToastContainer />
         </Container>
