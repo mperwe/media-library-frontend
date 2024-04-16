@@ -16,6 +16,7 @@ const MenuItem = styled.a`
   &:hover {
     text-decoration: underline;
   }
+  font-size: 20px;
 `;
 
 const MenuBar = () => {
