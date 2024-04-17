@@ -9,7 +9,7 @@ const MenuContainer = styled.nav`
   justify-content: space-between;
   align-items: center;
 
-  @media (max-width: 768px) {
+  @media (max-width: 708px) {
     flex-direction: column;
   }
 `;
@@ -17,7 +17,7 @@ const MenuContainer = styled.nav`
 const MenuItem = styled.a`
   color: white;
   text-decoration: none;
-  margin: 0 10px;
+  margin:10px;
   font-size: 20px;
   position: relative;
   transition: color 0.3s ease;
@@ -65,14 +65,14 @@ const MenuBar = () => {
         <MenuItemWithDropdown href="/dashboard">
           Movie List
           <DropdownMenu>
-            <DropdownMenuItem href="/dashboard/popular">Popular Movies</DropdownMenuItem>
-            <DropdownMenuItem href="/dashboard/top-rated">Top Rated Movies</DropdownMenuItem>
+            <DropdownMenuItem href="/dashboard">Popular Movies</DropdownMenuItem>
+            <DropdownMenuItem href="/dashboard">Top Rated Movies</DropdownMenuItem>
           </DropdownMenu>
         </MenuItemWithDropdown>
       </div>
       <div>
-        <MenuItem href="/View">About Us</MenuItem>
-        <MenuItem href="/contact">Contact</MenuItem>
+        <MenuItem href="/">About Us</MenuItem>
+        <MenuItem href="/View">Contact</MenuItem>
         <MenuItem href="/View">Join Us</MenuItem>
       </div>
     </MenuContainer>
