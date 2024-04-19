@@ -1,10 +1,18 @@
 import React from 'react';
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { ToastContainer } from 'react-toastify';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import MenuBar from '../components/MenuBar';
 import 'react-toastify/dist/ReactToastify.css';
+
+const slide = keyframes`
+    0% {
+        background-position: 0% 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+`;
 
 const Container = styled.div`
     display: flex;
@@ -12,7 +20,11 @@ const Container = styled.div`
     min-height: 100vh;
     background-color: #EAEDED;
     background-size: cover;
-    background-image: url('/moviebg11.jpg');
+    background-image: 
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), /* Overlay */
+        url('/moviebg11.jpg'); /* Background Image */
+    background-position: 25% 0; /* Positioning the background image */
+    animation: ${slide} 20s linear infinite alternate; /* Animation for sliding effect */
 `;
 
 const Content = styled.div`
@@ -52,8 +64,6 @@ const Home = () => {
     return (
         <Container>
             <Header />
-            <MenuBar /> 
-
             <Content>
                 <DifferentTitle>Engage Audiences Across Platforms</DifferentTitle>
                 <LinkButton>Explore More</LinkButton>

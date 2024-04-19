@@ -26,7 +26,7 @@ const LoginFormElement = styled.div`
 `;
 
 const LoginFormInput = styled.input`
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   padding: 8px;
    
 `;
