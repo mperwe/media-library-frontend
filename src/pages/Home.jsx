@@ -3,7 +3,6 @@ import styled, { keyframes } from "styled-components";
 import { ToastContainer } from 'react-toastify';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import MenuBar from '../components/MenuBar';
 import 'react-toastify/dist/ReactToastify.css';
 
 const slide = keyframes`
@@ -65,8 +64,6 @@ const Home = () => {
     return (
         <Container>
             <Header />
-            <MenuBar /> 
-
             <Content>
                 <DifferentTitle>Engage Audiences Across Platforms</DifferentTitle>
                 <LinkButton>Explore More</LinkButton>

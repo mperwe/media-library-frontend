@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // Import Link
 import MovieComponent from '../components/MovieComponent';
 import MovieInfoComponent from '../components/MovieInfoComponent';
 import { API_URL } from "../utils/constants";
 import Footer from '../components/Footer';
-import MenuBar from '../components/MenuBar';
+
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
 const AppName = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
 `;
+
 const RegisterButton = styled.button`
   background-color: #2ecc71;
   color: white;
@@ -31,7 +33,6 @@ const HeaderContainer = styled.div`
   color: white;
   display: flex;
   justify-content: space-between;
-  flex-direction: row;
   align-items: center;
   padding: 5px;
   font-size: 25px;
@@ -39,38 +40,51 @@ const HeaderContainer = styled.div`
   box-shadow: 0 3px 6px 0 #555;
 `;
 
+const Menu = styled.ul`
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+`;
+
+const MenuItem = styled.li`
+  margin-right: 20px;
+`;
+
 const SearchBox = styled.div`
   display: flex;
   flex-direction: row;
-  padding: 10px 10px;
+  padding: 20px 60px; /* Adjusted padding */
   border-radius: 6px;
   margin-left: 20px;
-  
+  margin-right: auto; 
   background-color: white;
+  margin-top: 10px; /* Added margin-top */
 `;
 
 const SearchButton = styled.button`
   background-color: #2ecc71;
   color: white;
-  padding: 10px 4px;
+  padding: 12px 20px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  margin-left: 1px;
+  margin-left: 10px;
 `;
 
 const MovieImage = styled.img`
   width: 55px;
   height: 48px;
   margin: 15px;
- `;
+`;
 
 const SearchInput = styled.input`
  color: black;
  font-size: 14px;
  border: none;
  outline: none;
- margin-left: 1px;
+ margin-left: 10px;
+ flex-grow: 1;
 `;
 
 const MovieListContainer = styled.div`
@@ -79,12 +93,13 @@ const MovieListContainer = styled.div`
   flex-wrap: wrap;
   padding: 30px;
   gap: 25px;
-  justify-content: space-evenly;;
+  justify-content: space-evenly;
 `;
+
 const Placeholder = styled.img`
   width: 120px;
   height: 120px;
-  margin: 150px;
+  margin: 10px;
   opacity: 50%;
 `;
 
@@ -103,7 +118,6 @@ const Dashboard = () => {
     updateTimeoutId(timeout);
   };
 
-
   const searchData = async (searchString) => {
     try {
       const backendUrl = `${API_URL}/movies/search?search=${encodeURIComponent(searchString)}`;
@@ -121,7 +135,8 @@ const Dashboard = () => {
   
 
   const handleLogout = () => {
-    localStorage.removeItem('token');  navigate('/');
+    localStorage.removeItem('token');
+    navigate('/');
   };
 
   const onSearchButtonClick = () => {
@@ -148,19 +163,31 @@ const Dashboard = () => {
   return (
     <Container>
       <HeaderContainer>
-      
         <AppName>
           <MovieImage src="logo12.jpg" alt="Movie Logo" />
           Frank's Movie Room
         </AppName>
-        <SearchBox>
-          <SearchInput placeholder="Search Movie" value={searchQuery} onChange={onTextChange} />
-          <SearchButton onClick={onSearchButtonClick}>Search</SearchButton>
-        </SearchBox>
-        <RegisterButton onClick={handleLogout}>Logout</RegisterButton>
-        
+        <Menu>
+          <MenuItem>
+            <Link to="/">
+              <RegisterButton>Home</RegisterButton>
+            </Link>
+          </MenuItem>
+          <MenuItem>
+            <Link to="/View">
+              <RegisterButton>About Us</RegisterButton>
+            </Link>
+          </MenuItem>
+          <MenuItem>
+            <RegisterButton onClick={handleLogout}>Logout</RegisterButton>
+          </MenuItem>
+        </Menu>
       </HeaderContainer>
-      <MenuBar /> 
+      
+      <SearchBox>
+        <SearchInput placeholder="Search Movie" value={searchQuery} onChange={onTextChange} />
+        <SearchButton onClick={onSearchButtonClick}>Search</SearchButton>
+      </SearchBox>
       {selectedMovie && <MovieInfoComponent selectedMovie={selectedMovie} onMovieSelect={onMovieSelect} />}
       <MovieListContainer>
         {movieList?.length ? (

@@ -1,60 +1,108 @@
+import React, { useState } from "react";
 import styled from "styled-components";
-const AppName = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`;
 
-const HeaderContainer = styled.div`
+const Container = styled.div`
   background-color: black;
   color: white;
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
-  flex-direction: row;
   align-items: center;
+`;
+
+const Logo = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+`;
+
+const LogoText = styled.span`
+  margin-left: 10px;
+`;
+
+const Menu = styled.ul`
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+`;
+
+const MenuItem = styled.li`
+  margin-right: 20px;
+`;
+
+const SubMenu = styled.ul`
+  position: absolute;
+  background-color: #2ecc71;
+  color: white;
+  list-style-type: none;
   padding: 10px;
-  font-size: 25px;
-  font-weight: bold;
-  box-shadow: 0 3px 6px 0 #555;
-`;
-
-const MovieImage = styled.img`
-  width: 55px;
-  height: 48px;
-  margin: 15px;
-`;
-
-const RegisterButton = styled.button`
-  background-color: #2ecc71;
-  color: white;
-  padding: 10px 15px;
-  border: none;
   border-radius: 5px;
-  cursor: pointer;
+  display: ${({ open }) => (open ? "block" : "none")};
 `;
 
-const LoginButton = styled.button`
-  background-color: #2ecc71;
+const SubMenuItem = styled.li`
+  margin-top: 5px;
+`;
+
+const Link = styled.a`
+  text-decoration: none;
   color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  font-size: 1.2rem; /* Increased font size */
+
+  &:hover {
+    color: #fff; /* Change color on hover */
+  }
 `;
 
-const Header = ({showLogin, setShowLogin }) => {
+const Header = ({ showLogin, setShowLogin }) => {
+  const [movieListOpen, setMovieListOpen] = useState(false);
+
+  const toggleMovieList = () => {
+    setMovieListOpen(!movieListOpen);
+  };
+
   return (
-      <HeaderContainer>
-        <AppName>
-          <MovieImage src="logo12.jpg" />
-          Frank's Movie Room
-        </AppName>
-        {showLogin ?<RegisterButton type="submit" onClick={() => setShowLogin(false)}>Register</RegisterButton> : <LoginButton onClick={() => setShowLogin(true)}>
-          Login
-        </LoginButton>
-        }
-      </HeaderContainer>
-  )
-}
+    <Container>
+      <Logo>
+        <img src="logo12.jpg" alt="Logo" width="40" height="40" />
+        <LogoText>Frank's Movie Room</LogoText>
+      </Logo>
+      <Menu>
+        <MenuItem onClick={toggleMovieList}>
+          <Link href="#movie-list">Movie List</Link>
+          <SubMenu open={movieListOpen}>
+            <SubMenuItem>
+              <Link href="/dashboard">Popular Movies</Link>
+            </SubMenuItem>
+            <SubMenuItem>
+              <Link href="/dashboard">Top Related Movies</Link>
+            </SubMenuItem>
+          </SubMenu>
+        </MenuItem>
+        <MenuItem>
+          <Link href="/">Home</Link>
+        </MenuItem>
+        <MenuItem>
+          <Link href="/dashboard">Search</Link>
+        </MenuItem>
+        <MenuItem>
+          <Link href="/">Contact</Link>
+        </MenuItem>
+        <MenuItem>
+          <Link href="/View">Join Us</Link>
+        </MenuItem>
+      </Menu>
+
+      {showLogin ? (
+        <button type="submit" onClick={() => setShowLogin(false)}>
+          Register
+        </button>
+      ) : (
+        <button onClick={() => setShowLogin(true)}>Login</button>
+      )}
+    </Container>
+  );
+};
 
 export default Header;
