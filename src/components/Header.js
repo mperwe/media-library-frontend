@@ -73,10 +73,10 @@ const Header = ({ showLogin, setShowLogin }) => {
           <Link href="#movie-list">Movie List</Link>
           <SubMenu open={movieListOpen}>
             <SubMenuItem>
-              <Link href="/dashboard">Popular Movies</Link>
+              <Link href="/Popular">Popular Movies</Link>
             </SubMenuItem>
             <SubMenuItem>
-              <Link href="/dashboard">Top Related Movies</Link>
+              <Link href="/Related">Top Related Movies</Link>
             </SubMenuItem>
           </SubMenu>
         </MenuItem>
