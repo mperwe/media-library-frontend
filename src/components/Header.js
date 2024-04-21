@@ -48,10 +48,10 @@ const SubMenuItem = styled.li`
 const Link = styled.a`
   text-decoration: none;
   color: white;
-  font-size: 1.2rem; /* Increased font size */
+  font-size: 1.2rem;
 
   &:hover {
-    color: #fff; /* Change color on hover */
+    color: #fff;
   }
 `;
 

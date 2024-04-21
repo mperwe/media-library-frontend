@@ -101,7 +101,7 @@ const LoginForm = () => {
                         />
                         <LoginButton type="submit">Login</LoginButton>
                         <p style={{ textAlign: 'center', marginTop: '20px' }}>
-                            Don't have an account? <a href="/">Sign up here</a>.
+                            Don't have an account? <a href="/View">Sign up here</a>.
                         </p>
                     </BackgroundCard>
                 </LoginFormElement>

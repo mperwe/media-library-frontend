@@ -18,13 +18,9 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #EAEDED;
     background-size: cover;
-    background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), /* Overlay */
-        url('/moviebg11.jpg'); /* Background Image */
-    background-position: 25% 0; /* Positioning the background image */
-    animation: ${slide} 20s linear infinite alternate; /* Animation for sliding effect */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)); /* Overlay */
+    animation: ${slide} 20s linear infinite alternate; 
 `;
 
 const Content = styled.div`
