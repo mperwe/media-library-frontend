@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled from "styled-components";
 import { ToastContainer } from 'react-toastify';
 import Footer from '../components/Footer';
@@ -31,27 +32,35 @@ const DifferentTitle = styled.h2`
     font-family: 'Your Preferred Font', sans-serif;
 `;
 
-const LinkButton = styled.select`
-    appearance: none;
-    background-color: #007bff;
+const LinkButton = styled.div`
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 30%;
+`;
+
+const OptionLink = styled(Link)`
+    background-color: brown;
     color: white;
+    text-align: center;
     border: none;
     padding: 10px 20px;
     font-size: 1.5rem;
     border-radius: 5px;
+    text-decoration: none;
     cursor: pointer;
-    margin-top: 20px;
-`;
-
-const Option = styled.option`
-    color: black;
+    margin: 5px;
+    font-weight: ;
+    width: calc(30.33% - 10px); /* Adjusted width */
+    box-sizing: border-box;
 `;
 
 const Home = () => {
     const [selectedCategory, setSelectedCategory] = useState('');
 
-    const handleCategoryChange = (event) => {
-        setSelectedCategory(event.target.value);
+    const handleCategoryChange = (category) => {
+        setSelectedCategory(category);
     };
 
     return (
@@ -59,17 +68,26 @@ const Home = () => {
             <Header />
             <Content>
                 <DifferentTitle>Engage Audiences Across Mega Platforms</DifferentTitle>
-                <LinkButton value={selectedCategory} onChange={handleCategoryChange}>
-                    <Option value="">Explore More</Option>
-                    <Option value="Horror">Horror</Option>
-                    <Option value="Thriller">Thriller</Option>
-                    <Option value="Romance">Romance</Option>
-                    <Option value="Action">Action</Option>
-                    <Option value="Science Fiction">Science Fiction</Option>
-                    <Option value="Westerns">Westerns</Option>
-                    <Option value="Drama">Drama</Option>
-                    <Option value="Crime">Crime</Option>
-                    <Option value="Comedy">Comedy</Option>
+                <LinkButton>
+                    <OptionLink to="/category" onClick={() => handleCategoryChange("Horror")}>Horror</OptionLink>
+                    <OptionLink to="/category" onClick={() => handleCategoryChange("Thriller")}>Thriller</OptionLink>
+                    <OptionLink to="/category" onClick={() => handleCategoryChange("Romance")}>Romance</OptionLink>
+                </LinkButton>
+                <LinkButton>
+                    <OptionLink to="/category" onClick={() => handleCategoryChange("Action")}>Action</OptionLink>
+                    <OptionLink to="/category" onClick={() => handleCategoryChange("Science Fiction")}>Science Fiction</OptionLink>
+                    <OptionLink to="/category" onClick={() => handleCategoryChange("Westerns")}>Westerns</OptionLink>
+                </LinkButton>
+                <LinkButton>
+                    <OptionLink to="/category" onClick={() => handleCategoryChange("Drama")}>Drama</OptionLink>
+                    <OptionLink to="/category" onClick={() => handleCategoryChange("Crime")}>Crime</OptionLink>
+                    <OptionLink to="/category" onClick={() => handleCategoryChange("Comedy")}>Comedy</OptionLink>
+                </LinkButton>
+                <LinkButton>
+                    {/* Add three more categories here */}
+                    <OptionLink to="/category" onClick={() => handleCategoryChange("Adventure")}>Adventure</OptionLink>
+                    <OptionLink to="/category" onClick={() => handleCategoryChange("Fantasy")}>Fantasy</OptionLink>
+                    <OptionLink to="/category" onClick={() => handleCategoryChange("Animation")}>Animation</OptionLink>
                 </LinkButton>
                 {selectedCategory && <p>You selected: {selectedCategory}</p>}
             </Content>
