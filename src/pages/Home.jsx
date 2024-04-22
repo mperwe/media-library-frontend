@@ -21,7 +21,7 @@ const Content = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
 `;
 
 const DifferentTitle = styled.h2`
@@ -33,11 +33,12 @@ const DifferentTitle = styled.h2`
 `;
 
 const LinkButton = styled.div`
-    margin-top: 20px;
+    margin-top: 9px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    width: 30%;
+    width: 36%;
+    margin-bottom: 9px; /* Added margin bottom */
 `;
 
 const OptionLink = styled(Link)`
@@ -45,15 +46,22 @@ const OptionLink = styled(Link)`
     color: white;
     text-align: center;
     border: none;
-    padding: 10px 20px;
-    font-size: 1.5rem;
+    padding: 9px 10px;
+    font-size: 1rem;
     border-radius: 5px;
     text-decoration: none;
     cursor: pointer;
-    margin: 5px;
+    margin: 3px;
     font-weight: ;
-    width: calc(30.33% - 10px); /* Adjusted width */
+    width: calc(14% - 5px); /* Adjusted width */
     box-sizing: border-box;
+`;
+
+const Text = styled.p`
+    margin-top: 9px; /* Adjusted margin top */
+    font-size: 1.2rem;
+    color: #000000;
+    visibility: visible;
 `;
 
 const Home = () => {
@@ -72,24 +80,20 @@ const Home = () => {
                     <OptionLink to="/category" onClick={() => handleCategoryChange("Horror")}>Horror</OptionLink>
                     <OptionLink to="/category" onClick={() => handleCategoryChange("Thriller")}>Thriller</OptionLink>
                     <OptionLink to="/category" onClick={() => handleCategoryChange("Romance")}>Romance</OptionLink>
-                </LinkButton>
-                <LinkButton>
                     <OptionLink to="/category" onClick={() => handleCategoryChange("Action")}>Action</OptionLink>
-                    <OptionLink to="/category" onClick={() => handleCategoryChange("Science Fiction")}>Science Fiction</OptionLink>
-                    <OptionLink to="/category" onClick={() => handleCategoryChange("Westerns")}>Westerns</OptionLink>
-                </LinkButton>
-                <LinkButton>
+                    <OptionLink to="/category" onClick={() => handleCategoryChange("Fiction")}>Fiction</OptionLink>
+                    <OptionLink to="/category" onClick={() => handleCategoryChange("Western")}>Western</OptionLink>
                     <OptionLink to="/category" onClick={() => handleCategoryChange("Drama")}>Drama</OptionLink>
                     <OptionLink to="/category" onClick={() => handleCategoryChange("Crime")}>Crime</OptionLink>
                     <OptionLink to="/category" onClick={() => handleCategoryChange("Comedy")}>Comedy</OptionLink>
-                </LinkButton>
-                <LinkButton>
-                    {/* Add three more categories here */}
                     <OptionLink to="/category" onClick={() => handleCategoryChange("Adventure")}>Adventure</OptionLink>
                     <OptionLink to="/category" onClick={() => handleCategoryChange("Fantasy")}>Fantasy</OptionLink>
                     <OptionLink to="/category" onClick={() => handleCategoryChange("Animation")}>Animation</OptionLink>
+                    <OptionLink to="/category" onClick={() => handleCategoryChange("Kids")}>Kids</OptionLink>
+                    <OptionLink to="/category" onClick={() => handleCategoryChange("Documentary")}>Documentary</OptionLink>
                 </LinkButton>
                 {selectedCategory && <p>You selected: {selectedCategory}</p>}
+                <Text>Select a category to explore more!</Text>
             </Content>
 
             <Footer />
