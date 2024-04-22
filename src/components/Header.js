@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Container = styled.div`
   background-color: black;
   color: white;
-  padding: 10px 20px;
+  padding: 30px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -69,6 +69,9 @@ const Header = ({ showLogin, setShowLogin }) => {
         <LogoText>Frank's Movie Room</LogoText>
       </Logo>
       <Menu>
+      <MenuItem>
+          <Link href="/">Home</Link>
+        </MenuItem>
         <MenuItem onClick={toggleMovieList}>
           <Link href="#movie-list">Movie List</Link>
           <SubMenu open={movieListOpen}>
@@ -80,9 +83,7 @@ const Header = ({ showLogin, setShowLogin }) => {
             </SubMenuItem>
           </SubMenu>
         </MenuItem>
-        <MenuItem>
-          <Link href="/">Home</Link>
-        </MenuItem>
+       
         <MenuItem>
           <Link href="/dashboard">Search</Link>
         </MenuItem>

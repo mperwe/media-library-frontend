@@ -1,26 +1,17 @@
 import React from 'react';
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { ToastContainer } from 'react-toastify';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import 'react-toastify/dist/ReactToastify.css';
-
-const slide = keyframes`
-    0% {
-        background-position: 0% 0;
-    }
-    100% {
-        background-position: 100% 0;
-    }
-`;
 
 const Container = styled.div`
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     background-size: cover;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)); /* Overlay */
-    animation: ${slide} 20s linear infinite alternate; 
+    background-image: url('movie13.jpg'); 
+    background: linear-gradient(to bottom, rgba(1, 0, 0, 0.6), rgba());
 `;
 
 const Content = styled.div`
