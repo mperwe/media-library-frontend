@@ -11,7 +11,7 @@ import styled from "styled-components";
 const LoginFormContainer = styled.form`
     display: flex;
     justify-content: center;
-    padding: 200px;
+    padding: 100px;
     height: 100vh;
     background-image: url('/moviebg5.jpg');
     background-size: cover;
@@ -101,7 +101,7 @@ const LoginForm = () => {
                         />
                         <LoginButton type="submit">Login</LoginButton>
                         <p style={{ textAlign: 'center', marginTop: '20px' }}>
-                            Don't have an account? <a href="/">Sign up here</a>.
+                            Don't have an account? <a href="/View">Sign up here</a>.
                         </p>
                     </BackgroundCard>
                 </LoginFormElement>

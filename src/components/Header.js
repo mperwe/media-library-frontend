@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Container = styled.div`
   background-color: black;
   color: white;
-  padding: 10px 20px;
+  padding: 30px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -48,10 +48,10 @@ const SubMenuItem = styled.li`
 const Link = styled.a`
   text-decoration: none;
   color: white;
-  font-size: 1.2rem; /* Increased font size */
+  font-size: 1.2rem;
 
   &:hover {
-    color: #fff; /* Change color on hover */
+    color: #fff;
   }
 `;
 
@@ -69,20 +69,21 @@ const Header = ({ showLogin, setShowLogin }) => {
         <LogoText>Frank's Movie Room</LogoText>
       </Logo>
       <Menu>
+      <MenuItem>
+          <Link href="/">Home</Link>
+        </MenuItem>
         <MenuItem onClick={toggleMovieList}>
           <Link href="#movie-list">Movie List</Link>
           <SubMenu open={movieListOpen}>
             <SubMenuItem>
-              <Link href="/dashboard">Popular Movies</Link>
+              <Link href="/Popular">Popular Movies</Link>
             </SubMenuItem>
             <SubMenuItem>
-              <Link href="/dashboard">Top Related Movies</Link>
+              <Link href="/Related">Top Related Movies</Link>
             </SubMenuItem>
           </SubMenu>
         </MenuItem>
-        <MenuItem>
-          <Link href="/">Home</Link>
-        </MenuItem>
+       
         <MenuItem>
           <Link href="/dashboard">Search</Link>
         </MenuItem>
