@@ -11,7 +11,7 @@ import styled from "styled-components";
 const LoginFormContainer = styled.form`
     display: flex;
     justify-content: center;
-    padding: 200px;
+    padding: 100px;
     height: 100vh;
     background-image: url('/moviebg5.jpg');
     background-size: cover;
