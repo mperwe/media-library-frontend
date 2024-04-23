@@ -20,7 +20,7 @@ const RegisterFormContainer = styled.form`
   justify-content: center;
   height: 100vh;
   padding: 20px;
-  background-image: url('/moviebg2.jpg');
+  background-image: url('/moviebg2.jpg',);
   background-size: cover;
   background-position: center;
 `;
