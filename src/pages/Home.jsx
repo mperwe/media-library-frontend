@@ -1,105 +1,128 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import styled from "styled-components";
+import React, { useEffect, useRef } from 'react';
+import styled, { keyframes } from 'styled-components';
 import { ToastContainer } from 'react-toastify';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import 'react-toastify/dist/ReactToastify.css';
 
+// Define the keyframes for sliding effect
+const slide = keyframes`
+  0% {
+    transform: translateX(0%);
+  }
+  10% {
+    transform: translateX(0%);
+  }
+  20% {
+    transform: translateX(-100%);
+  }
+  30% {
+    transform: translateX(-100%);
+  }
+  40% {
+    transform: translateX(-200%);
+  }
+  50% {
+    transform: translateX(-200%);
+  }
+  60% {
+    transform: translateX(-300%);
+  }
+  70% {
+    transform: translateX(-300%);
+  }
+  80% {
+    transform: translateX(-400%);
+  }
+  90% {
+    transform: translateX(-400%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+`;
+
 const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    min-height: 110vh;
-    background-size: 98% auto; 
-    background-image: url('movie13.jpg'); 
-    background: linear-gradient(to bottom, rgba(1, 0, 0, 0.6), rgba());
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  border-color: white;
+  background-size: cover;
 `;
 
 const Content = styled.div`
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
 `;
 
-const DifferentTitle = styled.h2`
-    text-align: center;
-    margin-top: 0;
-    font-size: 2.5rem;
-    color: #78281F;
-    font-family: 'Your Preferred Font', sans-serif;
+const CardContainer = styled.div`
+  width: 100%;
+  max-height: 500px;
+  overflow: hidden;
+  position: relative;
 `;
 
-const LinkButton = styled.div`
-    margin-top: 9px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 36%;
-    margin-bottom: 9px; /* Added margin bottom */
+const Slideshow = styled.div`
+  display: flex;
+  animation: ${slide} 60s linear infinite; /* Adjust duration accordingly */
 `;
 
-const OptionLink = styled(Link)`
-    background-color: brown;
-    color: white;
-    text-align: center;
-    border: none;
-    padding: 9px 10px;
-    font-size: 1rem;
-    border-radius: 5px;
-    text-decoration: none;
-    cursor: pointer;
-    margin: 3px;
-    font-weight: ;
-    width: calc(14% - 5px); /* Adjusted width */
-    box-sizing: border-box;
-`;
-
-const Text = styled.p`
-    margin-top: 9px; /* Adjusted margin top */
-    font-size: 1.2rem;
-    color: #000000;
-    visibility: visible;
+const Slide = styled.img`
+  width: 100%; /* Ensure all images occupy the same width */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 100%; /* Ensure the image doesn't exceed the container width */
+  border-right: 2px solid white; /* Separate images with a border */
 `;
 
 const Home = () => {
-    const [selectedCategory, setSelectedCategory] = useState('');
+  const images = [
+    'moviebg1.jpg',
+    'moviebg2.jpg',
+    'moviebg3.jpg',
+    'moviebg4.jpg',
+    'moviebg5.jpg',
+    'moviebg6.jpg',
+    'moviebg7.jpg',
+    'moviebg8.jpg',
+    'moviebg9.jpg',
+    'moviebg10.jpg',
+    'moviebg11.jpg',
+    'moviebg12.jpg',
+    // Add more image paths as needed
+  ];
 
-    const handleCategoryChange = (category) => {
-        setSelectedCategory(category);
-    };
+  // Ref to keep track of the slideshow container
+  const slideshowRef = useRef();
 
-    return (
-        <Container>
-            <Header />
-            <Content>
-                <DifferentTitle>Engage Audiences Across Mega Platforms</DifferentTitle>
-                <LinkButton>
-                    <OptionLink to="/category" onClick={() => handleCategoryChange("Horror")}>Horror</OptionLink>
-                    <OptionLink to="/category" onClick={() => handleCategoryChange("Thriller")}>Thriller</OptionLink>
-                    <OptionLink to="/category" onClick={() => handleCategoryChange("Romance")}>Romance</OptionLink>
-                    <OptionLink to="/category" onClick={() => handleCategoryChange("Action")}>Action</OptionLink>
-                    <OptionLink to="/category" onClick={() => handleCategoryChange("Fiction")}>Fiction</OptionLink>
-                    <OptionLink to="/category" onClick={() => handleCategoryChange("Western")}>Western</OptionLink>
-                    <OptionLink to="/category" onClick={() => handleCategoryChange("Drama")}>Drama</OptionLink>
-                    <OptionLink to="/category" onClick={() => handleCategoryChange("Crime")}>Crime</OptionLink>
-                    <OptionLink to="/category" onClick={() => handleCategoryChange("Comedy")}>Comedy</OptionLink>
-                    <OptionLink to="/category" onClick={() => handleCategoryChange("Adventure")}>Adventure</OptionLink>
-                    <OptionLink to="/category" onClick={() => handleCategoryChange("Fantasy")}>Fantasy</OptionLink>
-                    <OptionLink to="/category" onClick={() => handleCategoryChange("Animation")}>Animation</OptionLink>
-                    <OptionLink to="/category" onClick={() => handleCategoryChange("Kids")}>Kids</OptionLink>
-                    <OptionLink to="/category" onClick={() => handleCategoryChange("Documentary")}>Documentary</OptionLink>
-                </LinkButton>
-                {selectedCategory && <p>You selected: {selectedCategory}</p>}
-                <Text>Select a category to explore more!</Text>
-            </Content>
+  // Duplicate the first slide and add it to the end of the images array
+  useEffect(() => {
+    if (slideshowRef.current) {
+      const firstSlide = slideshowRef.current.children[0];
+      const lastSlideClone = firstSlide.cloneNode(true);
+      slideshowRef.current.appendChild(lastSlideClone);
+    }
+  }, []);
 
-            <Footer />
-            <ToastContainer />
-        </Container>
-    );
+  return (
+    <Container>
+      <Header />
+      <Content>
+        <CardContainer>
+          <Slideshow ref={slideshowRef}>
+            {images.map((image, index) => (
+              <Slide key={index} src={image} alt={`Slide ${index + 1}`} />
+            ))}
+          </Slideshow>
+        </CardContainer>
+      </Content>
+      <Footer />
+      <ToastContainer />
+    </Container>
+  );
 };
 
 export default Home;

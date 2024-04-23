@@ -25,6 +25,10 @@ const Container = styled.div`
         url('/movie.jpg'); /* Background Image */
     background-position: 25% 0; /* Positioning the background image */
     animation: ${slide} 20s linear infinite alternate; /* Animation for sliding effect */
+
+    @media screen and (max-width: 768px) {
+        background-position: center;
+    }
 `;
 
 const Content = styled.div`
