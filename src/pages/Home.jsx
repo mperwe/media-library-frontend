@@ -30,7 +30,7 @@ const CardContainer = styled.div`
 const Card = styled(Link)`
   position: relative; 
   width: 2500px; 
-  height: 800px; 
+  height: 1000px; 
   background-color: #fff;
   border: 1px solid #ccc;
   margin: 10px; 
@@ -42,14 +42,14 @@ const Card = styled(Link)`
 `;
 
 const CardImage = styled.img`
-  width: 200%;
-  height: 200%;
+  width: 100%;
+  height: 100%;
   object-fit: cover; 
 `;
 
 const CardContent = styled.div`
   position: absolute;
-  top: 45%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -57,19 +57,30 @@ const CardContent = styled.div`
 `;
 
 const Title = styled.h2`
-  margin: 5;
+  margin: 0px;
   font-family: 'Arial', sans-serif;
-  font-size: 75px;
+  font-size: 70px;
   color: white;
   font-weight: bold;
 `;
 
 const ContextText = styled.p`
-  margin: 5px 0 0;
+  margin: 10px 0 0;
   font-family: 'Arial', sans-serif;
-  font-size: 30px;
+  font-size: 40px;
   color: white;
-  font-weight: ;
+`;
+
+const Button = styled.button`
+  margin-top: 10px;
+  padding: 20px 60px;
+  font-size: 30px;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
 `;
 
 const Home = () => {
@@ -79,10 +90,11 @@ const Home = () => {
       <Content>
         <CardContainer>
           <Card to={`/page1`}>
-            <CardImage src={`moviebg2.jpg`} alt={`Image 1`} />
+            <CardImage src={`movie21.jpg`} alt={`Image 1`} />
             <CardContent>
               <Title>Where Every Frame Tells a Theme Story</Title>
-              <ContextText>'Unraveling Mysteries, One Movie at a Time!'</ContextText>
+              <ContextText>---------</ContextText>
+              <Link to={`/View`}><Button>Explore More with Us</Button></Link>
             </CardContent>
           </Card>
         </CardContainer>

@@ -13,7 +13,7 @@ const LoginFormContainer = styled.form`
     justify-content: center;
     padding: 100px;
     height: 100vh;
-    background-image: url('/moviebg5.jpg');
+    background-image: url('/movie13.jpg');
     background-size: cover;
     background-position: center;
     
