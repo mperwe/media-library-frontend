@@ -24,15 +24,16 @@ const CardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 1px;
+  margin-top: 100px;
 `;
 
 const Card = styled(Link)`
-  width: 2500px;
-  height: 1000px;
+  position: relative; 
+  width: 2500px; 
+  height: 800px; 
   background-color: #fff;
   border: 1px solid #ccc;
-  margin: 1px;
+  margin: 10px; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,9 +42,34 @@ const Card = styled(Link)`
 `;
 
 const CardImage = styled.img`
-  max-width: 1000%; 
-  max-height: 1000%; 
+  width: 200%;
+  height: 200%;
   object-fit: cover; 
+`;
+
+const CardContent = styled.div`
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+`;
+
+const Title = styled.h2`
+  margin: 5;
+  font-family: 'Arial', sans-serif;
+  font-size: 75px;
+  color: white;
+  font-weight: bold;
+`;
+
+const ContextText = styled.p`
+  margin: 5px 0 0;
+  font-family: 'Arial', sans-serif;
+  font-size: 30px;
+  color: white;
+  font-weight: ;
 `;
 
 const Home = () => {
@@ -54,6 +80,10 @@ const Home = () => {
         <CardContainer>
           <Card to={`/page1`}>
             <CardImage src={`moviebg2.jpg`} alt={`Image 1`} />
+            <CardContent>
+              <Title>Where Every Frame Tells a Theme Story</Title>
+              <ContextText>'Unraveling Mysteries, One Movie at a Time!'</ContextText>
+            </CardContent>
           </Card>
         </CardContainer>
       </Content>

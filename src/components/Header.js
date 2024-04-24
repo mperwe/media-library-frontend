@@ -4,11 +4,16 @@ import styled from "styled-components";
 const Container = styled.div`
   background-color: black;
   color: white;
-  padding: 30px 40px;
+  padding: 30px 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999; /* Ensure the header stays on top of other content */
 `;
+
 
 const Logo = styled.div`
   display: flex;
@@ -17,7 +22,7 @@ const Logo = styled.div`
 `;
 
 const LogoText = styled.span`
-  margin-left: 10px;
+  margin-left: 8px;
 `;
 
 const Menu = styled.ul`
@@ -77,6 +82,12 @@ const Header = ({ showLogin, setShowLogin }) => {
           <SubMenu open={movieListOpen}>
             <SubMenuItem>
               <Link href="/Popular">Popular Movies</Link>
+            </SubMenuItem>
+            <SubMenuItem>
+              <Link href="/Related">Top Related Movies</Link>
+            </SubMenuItem>
+            <SubMenuItem>
+              <Link href="/Related">Top Related Movies</Link>
             </SubMenuItem>
             <SubMenuItem>
               <Link href="/Related">Top Related Movies</Link>
