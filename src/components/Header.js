@@ -102,9 +102,7 @@ const Header = ({ showLogin, setShowLogin }) => {
         <MenuItem>
           <Link href="/dashboard">Search</Link>
         </MenuItem>
-        <MenuItem>
-          <Link href="/">Contact</Link>
-        </MenuItem>
+       
                 {showLogin ? (
         <MenuItem onClick={() => setShowLogin(false)}>
           Register

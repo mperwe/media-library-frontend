@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import LoginForm from '../components/LoginForm';
 import RegisterForm from '../components/RegisterForm';
-import backgroundImage from '../images/image4.png';
+import backgroundImage from '../images/movie23.jpg';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Container = styled.div`
@@ -13,7 +13,8 @@ const Container = styled.div`
   flex-direction: column;
   position: relative;
   background-image: url(${backgroundImage});
-  background-size: cover;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   min-height: 100vh;
 `;
 
