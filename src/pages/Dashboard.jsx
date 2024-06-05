@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom'; // Import Link
+import { Link, useNavigate } from 'react-router-dom'; 
 import MovieComponent from '../components/MovieComponent';
 import MovieInfoComponent from '../components/MovieInfoComponent';
 import { API_URL } from "../utils/constants";
@@ -54,12 +54,12 @@ const MenuItem = styled.li`
 const SearchBox = styled.div`
   display: flex;
   flex-direction: row;
-  padding: 20px 60px; /* Adjusted padding */
+  padding: 20px 60px; 
   border-radius: 6px;
   margin-left: 20px;
   margin-right: auto; 
   background-color: white;
-  margin-top: 10px; /* Added margin-top */
+  margin-top: 10px;
 `;
 
 const SearchButton = styled.button`

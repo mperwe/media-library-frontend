@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import 'react-toastify/dist/ReactToastify.css';
 
-// Background image
+
 import backgroundImage from '../images/moviebg11.jpg';
 
 const Container = styled.div`
@@ -97,8 +97,7 @@ const Home = () => {
                 <Link to={`/View`}><Button>Explore More with Us</Button></Link>
               </CardContent>
             </Card>
-            {/* Add more cards here if needed */}
-          </CardContainer>
+            </CardContainer>
         </Content>
       </Background>
       <Footer />
