@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import LoginForm from "./LoginForm";
+import RegisterForm from "./RegisterForm";
 
 const Container = styled.div`
   background-color: black;
   color: white;
-  padding: 30px 40px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999; 
 `;
 
 const Logo = styled.div`
@@ -17,18 +23,29 @@ const Logo = styled.div`
 `;
 
 const LogoText = styled.span`
-  margin-left: 10px;
+  margin-left: 8px;
 `;
 
-const Menu = styled.ul`
+const Menu = styled.div`
   display: flex;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+  align-items: center;
+  margin-left: auto; 
+  margin-right: 22px; 
 `;
 
-const MenuItem = styled.li`
-  margin-right: 20px;
+const MenuItem = styled.button`
+  background-color: #2ecc71;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: #27ae60;
+  }
 `;
 
 const SubMenu = styled.ul`
@@ -37,7 +54,7 @@ const SubMenu = styled.ul`
   color: white;
   list-style-type: none;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 10px;
   display: ${({ open }) => (open ? "block" : "none")};
 `;
 
@@ -48,7 +65,7 @@ const SubMenuItem = styled.li`
 const Link = styled.a`
   text-decoration: none;
   color: white;
-  font-size: 1.2rem;
+  font-size: 1rem;
 
   &:hover {
     color: #fff;
@@ -72,38 +89,25 @@ const Header = ({ showLogin, setShowLogin }) => {
       <MenuItem>
           <Link href="/">Home</Link>
         </MenuItem>
-        <MenuItem onClick={toggleMovieList}>
-          <Link href="#movie-list">Movie List</Link>
-          <SubMenu open={movieListOpen}>
-            <SubMenuItem>
-              <Link href="/Popular">Popular Movies</Link>
-            </SubMenuItem>
-            <SubMenuItem>
-              <Link href="/Related">Top Related Movies</Link>
-            </SubMenuItem>
-          </SubMenu>
-        </MenuItem>
-       
+               
         <MenuItem>
           <Link href="/dashboard">Search</Link>
         </MenuItem>
-        <MenuItem>
-          <Link href="/">Contact</Link>
-        </MenuItem>
-        <MenuItem>
-          <Link href="/View">Join Us</Link>
-        </MenuItem>
-      </Menu>
-
-      {showLogin ? (
-        <button type="submit" onClick={() => setShowLogin(false)}>
+       
+                {showLogin ? (
+        <MenuItem onClick={() => setShowLogin(false)}>
           Register
-        </button>
+        </MenuItem>
       ) : (
-        <button onClick={() => setShowLogin(true)}>Login</button>
+        <MenuItem onClick={() => setShowLogin(true)}>
+        Login
+      </MenuItem>
       )}
+      
+      </Menu>
+     
     </Container>
+    
   );
 };
-
 export default Header;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom'; // Import Link
+import { Link, useNavigate } from 'react-router-dom'; 
 import MovieComponent from '../components/MovieComponent';
 import MovieInfoComponent from '../components/MovieInfoComponent';
 import { API_URL } from "../utils/constants";
@@ -11,6 +11,7 @@ import Footer from '../components/Footer';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center; /* Center contents horizontally */
 `;
 
 const AppName = styled.div`
@@ -38,6 +39,7 @@ const HeaderContainer = styled.div`
   font-size: 25px;
   font-weight: bold;
   box-shadow: 0 3px 6px 0 #555;
+  width: 100%; /* Ensure full width */
 `;
 
 const Menu = styled.ul`
@@ -54,12 +56,13 @@ const MenuItem = styled.li`
 const SearchBox = styled.div`
   display: flex;
   flex-direction: row;
-  padding: 20px 60px; /* Adjusted padding */
+  justify-content: center; /* Horizontally center the search box */
+  align-items: center; /* Vertically center the search box */
+  padding: 20px 60px; 
   border-radius: 6px;
-  margin-left: 20px;
-  margin-right: auto; 
   background-color: white;
-  margin-top: 10px; /* Added margin-top */
+  margin-top: 10px;
+  margin-bottom: 20px; /* Add margin bottom for spacing */
 `;
 
 const SearchButton = styled.button`
