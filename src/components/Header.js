@@ -28,7 +28,7 @@ const Menu = styled.div`
   display: flex;
   align-items: center;
   margin-left: auto; 
-  margin-right: 25px; 
+  margin-right: 22px; 
 `;
 
 const MenuItem = styled.button`
@@ -105,10 +105,7 @@ const Header = ({ showLogin, setShowLogin }) => {
         <MenuItem>
           <Link href="/">Contact</Link>
         </MenuItem>
-        <MenuItem>
-          <Link href="/View">Join Us</Link>
-        </MenuItem>
-        {showLogin ? (
+                {showLogin ? (
         <MenuItem onClick={() => setShowLogin(false)}>
           Register
         </MenuItem>
