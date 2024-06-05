@@ -60,7 +60,7 @@ const LinkButton = styled.button`
     margin-top: 20px;
 `;
 
-const Home = () => {
+const Polular = () => {
     return (
         <Container>
             <Header />
@@ -76,4 +76,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Polular;

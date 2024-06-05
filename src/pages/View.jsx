@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import LoginForm from '../components/LoginForm';
 import RegisterForm from '../components/RegisterForm';
-import backgroundImage from '../images/image4.png';
+import backgroundImage from '../images/movie22.jpg';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Container = styled.div`

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import LoginForm from "./LoginForm";
+import RegisterForm from "./RegisterForm";
 
 const Container = styled.div`
   background-color: black;
@@ -87,18 +89,7 @@ const Header = ({ showLogin, setShowLogin }) => {
       <MenuItem>
           <Link href="/">Home</Link>
         </MenuItem>
-        <MenuItem onClick={toggleMovieList}>
-          <Link href="#movie-list">Movie List</Link>
-          <SubMenu open={movieListOpen}>
-            <SubMenuItem>
-              <Link href="/Popular">Popular Movies</Link>
-            </SubMenuItem>
-            <SubMenuItem>
-              <Link href="/Related">Top Related Movies</Link>
-            </SubMenuItem>
-          </SubMenu>
-        </MenuItem>
-       
+               
         <MenuItem>
           <Link href="/dashboard">Search</Link>
         </MenuItem>
@@ -112,9 +103,11 @@ const Header = ({ showLogin, setShowLogin }) => {
         Login
       </MenuItem>
       )}
+      
       </Menu>
+     
     </Container>
+    
   );
 };
-
 export default Header;
