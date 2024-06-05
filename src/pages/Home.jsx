@@ -17,65 +17,63 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px 0;
+  padding: 30px 0;
 `;
 
 const CardContainer = styled.div`
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  margin-top: 100px;
+  margin-top: 85px; 
 `;
 
 const Card = styled(Link)`
-  position: relative; 
-  width: 2500px; 
-  height: 1000px; 
+  position: relative;
+  width: 2000px; /* Adjusted width */
+  height: 700px; /* Adjusted height */
   background-color: #fff;
   border: 1px solid #ccc;
-  margin: 10px; 
+  margin: 10px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  overflow: hidden; 
+  overflow: hidden;
 `;
 
 const CardImage = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover; 
+  width: 80%; /* Adjusted width */
+  height: 95%; /* Adjusted height */
+  object-fit: cover;
 `;
 
 const CardContent = styled.div`
   position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 50%;
+  transform: translateY(-50%);
   text-align: center;
-  color: #fff;
+  padding: 20px;
+  color: #fff; /* Adjusted text color */
 `;
 
 const Title = styled.h2`
-  margin: 0px;
+  margin: 5px;
   font-family: 'Arial', sans-serif;
-  font-size: 70px;
-  color: white;
+  font-size: 50px;
   font-weight: bold;
 `;
 
 const ContextText = styled.p`
-  margin: 10px 0 0;
+  margin: 5px 0 0;
   font-family: 'Arial', sans-serif;
-  font-size: 40px;
-  color: white;
+  font-size: 30px;
 `;
 
 const Button = styled.button`
-  margin-top: 10px;
-  padding: 20px 60px;
-  font-size: 30px;
-  background-color: #2ecc71;
+  margin-top: 20px;
+  padding: 30px 40px;
+  font-size: 18px;
+  background-color: green;
   color: white;
   border: none;
   border-radius: 30px;
@@ -90,10 +88,10 @@ const Home = () => {
       <Content>
         <CardContainer>
           <Card to={`/page1`}>
-            <CardImage src={`movie21.jpg`} alt={`Image 1`} />
+            <CardImage src={`movie24.jpeg`} alt={`Image 1`} />
             <CardContent>
               <Title>Where Every Frame Tells a Theme Story</Title>
-              <ContextText>---------</ContextText>
+              <ContextText>'Unraveling Mysteries, One Movie at a Time!'</ContextText>
               <Link to={`/View`}><Button>Explore More with Us</Button></Link>
             </CardContent>
           </Card>
