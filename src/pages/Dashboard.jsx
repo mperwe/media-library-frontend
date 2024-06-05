@@ -11,7 +11,7 @@ import Footer from '../components/Footer';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center contents horizontally */
+  align-items: center; 
 `;
 
 const AppName = styled.div`
@@ -56,38 +56,47 @@ const MenuItem = styled.li`
 const SearchBox = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center; /* Horizontally center the search box */
-  align-items: center; /* Vertically center the search box */
-  padding: 20px 60px; 
+  justify-content: center;
+  align-items: center;
+  padding: 10px; 
   border-radius: 6px;
-  background-color: white;
+  background-color: #f8f8f8; 
   margin-top: 10px;
-  margin-bottom: 20px; /* Add margin bottom for spacing */
+  margin-bottom: 20px;
+  border: 1px solid #ccc; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+`;
+
+const SearchInput = styled.input`
+  color: black;
+  font-size: 14px;
+  border: 1px solid #ccc; 
+  border-radius: 4px 0 0 4px; 
+  outline: none;
+  margin-left: 10px;
+  padding: 10px; 
+  flex-grow: 1;
 `;
 
 const SearchButton = styled.button`
   background-color: #2ecc71;
   color: white;
   padding: 12px 20px;
-  border: none;
-  border-radius: 10px;
+  border: 1px solid #2ecc71; 
+  border-radius: 0 4px 4px 0; 
   cursor: pointer;
-  margin-left: 10px;
+  margin-left: -1px; 
+  transition: background-color 0.3s ease; 
+
+  &:hover {
+    background-color: #27ae60; 
+    }
 `;
 
 const MovieImage = styled.img`
   width: 55px;
   height: 48px;
   margin: 15px;
-`;
-
-const SearchInput = styled.input`
- color: black;
- font-size: 14px;
- border: none;
- outline: none;
- margin-left: 10px;
- flex-grow: 1;
 `;
 
 const MovieListContainer = styled.div`
