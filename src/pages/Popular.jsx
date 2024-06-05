@@ -1,3 +1,6 @@
+/* code under construction
+
+
 import React from 'react';
 import styled, { keyframes } from "styled-components";
 import { ToastContainer } from 'react-toastify';
@@ -21,10 +24,10 @@ const Container = styled.div`
     background-color: #EAEDED;
     background-size: cover;
     background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), /* Overlay */
-        url('/movie.jpg'); /* Background Image */
-    background-position: 25% 0; /* Positioning the background image */
-    animation: ${slide} 20s linear infinite alternate; /* Animation for sliding effect */
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+        url('/movie.jpg'); 
+    background-position: 25% 0; 
+    animation: ${slide} 20s linear infinite alternate; 
 `;
 
 const Content = styled.div`
@@ -77,3 +80,5 @@ const Polular = () => {
 };
 
 export default Polular;
+
+*/
