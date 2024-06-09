@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
-import styled, { keyframes } from "styled-components";
+import React from 'react';
+import styled, { keyframes } from 'styled-components';
 import { ToastContainer } from 'react-toastify';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import 'react-toastify/dist/ReactToastify.css';
-import {  useNavigate } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 
 const slide = keyframes`
     0% {
@@ -20,13 +19,13 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #EAEDED;
+    background-image: url('/movie23.jpg');
     background-size: cover;
-    background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-        url('/movie.jpg'); 
-    background-position: 25% 0; 
-    animation: ${slide} 20s linear infinite alternate; 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #EAEDED;
+
+    animation: ${slide} 20s linear infinite alternate;
 `;
 
 const Content = styled.div`
@@ -36,19 +35,25 @@ const Content = styled.div`
     justify-content: center;
     align-items: center;
     padding: 20px;
+    text-align: center;
 `;
 
 const Title = styled.h2`
-    text-align: center;
     margin-top: 30px;
+    font-size: 1.5rem;
+    @media (min-width: 768px) {
+        font-size: 2rem;
+    }
 `;
 
 const DifferentTitle = styled.h2`
-    text-align: center;
     margin-top: 0;
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #78281F;
     font-family: 'Your Preferred Font', sans-serif;
+    @media (min-width: 768px) {
+        font-size: 2.5rem;
+    }
 `;
 
 const LinkButton = styled.button`
@@ -56,28 +61,29 @@ const LinkButton = styled.button`
     color: white;
     border: none;
     padding: 10px 20px;
-    font-size: 1.5rem;
+    font-size: 1rem;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 20px;
+    @media (min-width: 768px) {
+        font-size: 1.5rem;
+    }
 `;
 
 const Home = () => {
-  const navigate=useNavigate();
-    return (
-        <Container>
-            <Header action='Login' onClick={()=>navigate('/login')}/>
-            <Content>
-                <DifferentTitle>Polular Page. Under construction</DifferentTitle>
-                <LinkButton type='submit'onClick={()=>navigate('/login')}>Explore More</LinkButton>
-                <Title>"Escape into the world of film."</Title>
-            </Content>
-
-            <Footer />
-            <ToastContainer />
-        </Container>
-    );
+  const navigate = useNavigate();
+  return (
+    <Container>
+      <Header action='Login' onClick={() => navigate('/login')} />
+      <Content>
+        <DifferentTitle>Popular Page. Under construction</DifferentTitle>
+        <LinkButton type='button' onClick={() => navigate('/login')}>Explore More</LinkButton>
+        <Title>"Escape into the world of film."</Title>
+      </Content>
+      <Footer />
+      <ToastContainer />
+    </Container>
+  );
 };
 
 export default Home;
-

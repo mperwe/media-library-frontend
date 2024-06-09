@@ -92,10 +92,19 @@ const Header = ({ action, onClick }) => {
       </Logo>
       <Menu>
       <MenuItem>
-          <Link href="/">Home</Link>
+          <Link href="/">HOME</Link>
         </MenuItem>
         <MenuItem>
-          <Link href="/dashboard">Search</Link>
+          <Link href="/dashboard">SEARCH</Link>
+          </MenuItem>
+          <MenuItem>
+          <Link href="/">WATCHLIST</Link>
+        </MenuItem>
+        <MenuItem>
+          <Link href="/">MOVIES</Link>
+        </MenuItem>
+        <MenuItem>
+          <Link href="/">SERIES</Link>
         </MenuItem>
         <MenuItem onClick={onClick}>
         {action}
