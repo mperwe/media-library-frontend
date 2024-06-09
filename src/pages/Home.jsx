@@ -1,57 +1,83 @@
 import React, { useState } from 'react';
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { ToastContainer } from 'react-toastify';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import LoginForm from '../components/LoginForm';
-import RegisterForm from '../components/RegisterForm';
-import backgroundImage from '../images/moviebg2.jpg';
 import 'react-toastify/dist/ReactToastify.css';
+import {  useNavigate } from 'react-router-dom';
+
+
+const slide = keyframes`
+    0% {
+        background-position: 0% 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+`;
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  background-image: url(${backgroundImage});
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #EAEDED;
+    background-size: cover;
+    background-image: 
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+        url('/movie.jpg'); 
+    background-position: 25% 0; 
+    animation: ${slide} 20s linear infinite alternate; 
 `;
 
 const Content = styled.div`
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 `;
 
-const TextMessage = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white; 
-  font-size: 5vw; 
-  text-align: center;
-  font-family: 'Your Preferred Font', sans-serif; 
-  font-weight: bold; 
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+const Title = styled.h2`
+    text-align: center;
+    margin-top: 30px;
+`;
+
+const DifferentTitle = styled.h2`
+    text-align: center;
+    margin-top: 0;
+    font-size: 2.5rem;
+    color: #78281F;
+    font-family: 'Your Preferred Font', sans-serif;
+`;
+
+const LinkButton = styled.button`
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
 `;
 
 const Home = () => {
-  const [showLogin, setShowLogin] = useState(false);
+  const navigate=useNavigate();
+    return (
+        <Container>
+            <Header action='Login' onClick={()=>navigate('/login')}/>
+            <Content>
+                <DifferentTitle>Polular Page. Under construction</DifferentTitle>
+                <LinkButton type='submit'onClick={()=>navigate('/login')}>Explore More</LinkButton>
+                <Title>"Escape into the world of film."</Title>
+            </Content>
 
-  return (
-    <Container>
-      <Header showLogin={showLogin} setShowLogin={setShowLogin} />
-      <Content>
-        {showLogin ? <LoginForm /> : <RegisterForm setShowLogin={setShowLogin} />}
-      </Content>
-     
-      <Footer />
-      <ToastContainer />
-    </Container>
-  );
+            <Footer />
+            <ToastContainer />
+        </Container>
+    );
 };
 
 export default Home;
+

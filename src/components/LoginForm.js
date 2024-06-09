@@ -1,19 +1,26 @@
 // LoginForm.js
 
-import React, { useState } from "react";
+
+import React, { useState } from 'react';
+import { ToastContainer } from 'react-toastify';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import backgroundImage from '../images/movie22.jpg';
+import 'react-toastify/dist/ReactToastify.css';
+import styled, { keyframes } from "styled-components";
+
 import axios from "axios";
 import { API_URL } from "../utils/constants";
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-import styled from "styled-components";
-import backgroundImage from '../images/movie13.jpg';
+
 
 const LoginFormContainer = styled.form`
     display: flex;
     justify-content: center;
     padding: 100px;
     height: 50vh;
-    width: 100vw; /* Set the width to cover the entire viewport */
+    width: 100vw;
     background-image: url(${backgroundImage});
     background-size: cover;
     background-position: center;
@@ -51,6 +58,28 @@ const BackgroundCard = styled.div`
     height: auto;
 `;
 
+const slide = keyframes`
+    0% {
+        background-position: 0% 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+`;
+
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #EAEDED;
+    background-size: cover;
+    background-image: 
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+        url('/movie.jpg'); 
+    background-position: 25% 0; 
+    animation: ${slide} 20s linear infinite alternate; 
+`;
+
 const LoginForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -78,11 +107,13 @@ const LoginForm = () => {
     };
 
     return (
+        <Container>
+        <Header  action='Register' onClick={()=>navigate('/register')}/>
         <LoginFormContainer onSubmit={handleLogin}>
             <LoginFormElement>
                 <BackgroundCard>
                     <p style={{ textAlign: 'center', fontSize: '18px', fontWeight: 'bold', marginBottom: '20px' }}>
-                        Welcome! Please login to access your account.
+                        Welcome! Please login to access your account......
                     </p>
                     <LoginFormInput
                         type="email"
@@ -100,12 +131,22 @@ const LoginForm = () => {
                     />
                     <LoginButton type="submit">Login</LoginButton>
                     <p style={{ textAlign: 'center', marginTop: '20px' }}>
-                        Don't have an account? <a href="/View">Sign up here</a>.
+                        Don't have an account? <a href="/register">Sign up here</a>.
                     </p>
                 </BackgroundCard>
             </LoginFormElement>
-        </LoginFormContainer>
+        </LoginFormContainer> 
+        <Footer />
+        <ToastContainer />
+      </Container>
+
+        
     );
 };
 
 export default LoginForm;
+
+
+
+
+

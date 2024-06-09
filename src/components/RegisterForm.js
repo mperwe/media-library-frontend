@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import styled from 'styled-components';
+import styled, { keyframes } from "styled-components";
 import { toast } from 'react-toastify';
 import { API_URL } from '../utils/constants';
+import { ToastContainer } from 'react-toastify';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterButton = styled.button`
   background-color: #2ecc71;
@@ -74,11 +78,33 @@ const BelowFormText = styled.p`
   margin-top: 5px;
 `;
 
+const slide = keyframes`
+    0% {
+        background-position: 0% 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+`;
+
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #EAEDED;
+    background-size: cover;
+    background-image: 
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+        url('/movie.jpg'); 
+    background-position: 25% 0; 
+    animation: ${slide} 20s linear infinite alternate; 
+`;
+
 const RegisterForm = ({ setShowLogin }) => {
   const [registerUsername, setRegisterUsername] = useState('');
   const [registerEmail, setRegisterEmail] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
-
+  const navigate = useNavigate()
 
   const handleRegisterFormSubmit = async (e) => {
     e.preventDefault();
@@ -93,15 +119,17 @@ const RegisterForm = ({ setShowLogin }) => {
           localStorage.setItem('token', result.data.token);
           setShowLogin(true)
         } else {
-          toast('User registration failed, contact Administrator');
+          toast('User registration failed, contact Administrator', 1000);
         }
       }
     } catch (error) {
-      toast('User registration failed, contact Administrator');
+      toast('User registration failed, contact Administrator', 1000);
     }
   };
 
   return (
+    <Container>
+    <Header  action='Login' onClick={()=>navigate('/login')} />
     <RegisterFormContainer onSubmit={handleRegisterFormSubmit}>
       <AboveFormText>"Movies for every mood, at your fingertips."</AboveFormText>
       <AnotherAboveFormText>Register and start your membership today</AnotherAboveFormText>
@@ -133,9 +161,11 @@ const RegisterForm = ({ setShowLogin }) => {
         </BackgroundCard>
       </RegisterFormElement>
       <BelowFormText>Comfort is guaranteed.</BelowFormText>
-      
-   
     </RegisterFormContainer>
+    <Footer />
+    <ToastContainer />
+  </Container>
+
   );
 };
 
