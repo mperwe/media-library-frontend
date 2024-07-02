@@ -94,11 +94,12 @@ const Container = styled.div`
     background-color: #EAEDED;
     background-size: cover;
     background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-        url('/movie.jpg'); 
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.0)), 
+        url('/moviebg2.jpg');
     background-position: 25% 0; 
-    animation: ${slide} 20s linear infinite alternate; 
+    animation: ${slide} 15s linear infinite alternate; 
 `;
+
 
 const RegisterForm = ({ setShowLogin }) => {
   const [registerUsername, setRegisterUsername] = useState('');

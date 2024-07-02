@@ -19,14 +19,13 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image: url('/movie23.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
     background-color: #EAEDED;
-
-    animation: ${slide} 20s linear infinite alternate;
+    background-image: 
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), 
+        url('/moviebg5.jpg');
+    animation: ${slide} 25s linear infinite alternate;
 `;
+
 
 const Content = styled.div`
     flex: 1;
@@ -41,23 +40,24 @@ const Content = styled.div`
 const Title = styled.h2`
     margin-top: 30px;
     font-size: 1.5rem;
+    color: yellow;
     @media (min-width: 768px) {
-        font-size: 2rem;
+        font-size: 3rem;
     }
 `;
 
 const DifferentTitle = styled.h2`
     margin-top: 0;
     font-size: 2rem;
-    color: #78281F;
+    color: white;
     font-family: 'Your Preferred Font', sans-serif;
     @media (min-width: 768px) {
-        font-size: 2.5rem;
+        font-size: 4rem;
     }
 `;
 
 const LinkButton = styled.button`
-    background-color: #007bff;
+    background-color: #2ecc71;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -65,25 +65,26 @@ const LinkButton = styled.button`
     border-radius: 5px;
     cursor: pointer;
     margin-top: 20px;
-    @media (min-width: 768px) {
+    @media (min-width: 700px) {
         font-size: 1.5rem;
     }
 `;
 
 const Home = () => {
-  const navigate = useNavigate();
-  return (
-    <Container>
-      <Header action='Login' onClick={() => navigate('/login')} />
-      <Content>
-        <DifferentTitle>Popular Page. Under construction</DifferentTitle>
-        <LinkButton type='button' onClick={() => navigate('/login')}>Explore More</LinkButton>
-        <Title>"Escape into the world of film."</Title>
-      </Content>
-      <Footer />
-      <ToastContainer />
-    </Container>
-  );
+    const navigate = useNavigate();
+
+    return (
+        <Container>
+            <Header action='Login' onClick={() => navigate('/login')} />
+            <Content>
+                <DifferentTitle>Every generation has a legend.</DifferentTitle>
+                <LinkButton type='button' onClick={() => navigate('/login')}>Explore More</LinkButton>
+                <Title>"Escape into the world of film."</Title>
+            </Content>
+            <Footer />
+            <ToastContainer />
+        </Container>
+    );
 };
 
 export default Home;
