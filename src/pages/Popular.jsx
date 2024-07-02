@@ -6,6 +6,14 @@ import Header from '../components/Header';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 
+// Import images
+
+import movie21 from '../images/movie21.jpg'
+import movie23 from '../images/movie23.jpg'
+import movie24 from '../images/movie24.jpeg'
+import moviebg5 from '../images/moviebg5.jpg'
+
+
 const slide = keyframes`
     0% {
         background-position: 0% 0;
@@ -22,7 +30,7 @@ const Container = styled.div`
     background-color: #EAEDED;
     background-image: 
         linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), 
-        url('/movie23.jpg');
+        url('/movie23.');
     animation: ${slide} 25s linear infinite alternate;
 `;
 
@@ -55,6 +63,11 @@ const Card = styled.div`
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    /* Background image */
+    background-image: url(${props => props.image});
+    background-size: cover;
+    background-position: center;
+    height: 200px; /* Adjust as per your design */
 `;
 
 const Polular = () => {
@@ -65,16 +78,16 @@ const Polular = () => {
             <Header action='Login' onClick={() => navigate('/login')} />
             <Content>
                 <CardContainer>
-                    <Card>
+                    <Card image={movie21}>
                         <h3>Title 1</h3>
                     </Card>
-                    <Card>
+                    <Card image={movie23}>
                         <h3>Title 2</h3>
                     </Card>
-                    <Card>
+                    <Card image={movie24}>
                         <h3>Title 3</h3>
                     </Card>
-                    <Card>
+                    <Card image={moviebg5}>
                         <h3>Title 4</h3>
                     </Card>
                 </CardContainer>
