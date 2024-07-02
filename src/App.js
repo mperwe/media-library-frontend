@@ -19,6 +19,8 @@ function App() {
         <Route path='/related' element={<Related />} />
         <Route path='/login' element={<LoginForm />} />
         <Route path='/register' element={<RegisterForm />} />
+        <Route path='/popular' element={<Popular />} />
+        <Route path='/related' element={<Related />} />
       </Routes>
     </Router>
   );
