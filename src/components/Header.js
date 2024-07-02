@@ -98,7 +98,7 @@ const Header = ({ action, onClick }) => {
           <Link href="/dashboard">SEARCH</Link>
           </MenuItem>
           <MenuItem>
-          <Link href="/">WATCHLIST</Link>
+          <Link href="/popular">WATCHLIST</Link>
         </MenuItem>
         <MenuItem>
           <Link href="/">MOVIES</Link>
