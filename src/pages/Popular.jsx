@@ -8,10 +8,12 @@ import { useNavigate } from 'react-router-dom';
 
 // Import images
 
-import movie21 from '../images/movie21.jpg'
-import movie23 from '../images/movie23.jpg'
-import movie24 from '../images/movie24.jpeg'
-import moviebg5 from '../images/moviebg5.jpg'
+import movie21 from '../images/movie21.jpg';
+import movie22 from '../images/movie22.jpg';
+import movie23 from '../images/movie23.jpg';
+import movie24 from '../images/movie24.jpeg';
+import movie25 from '../images/movie25.jpg';
+import movie26 from '../images/movie26.jpg'; // New image
 
 
 const slide = keyframes`
@@ -29,9 +31,9 @@ const Container = styled.div`
     min-height: 100vh;
     background-color: #EAEDED;
     background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), 
-        url('/movie23.');
-    animation: ${slide} 25s linear infinite alternate;
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), 
+    url('/movie24.jpeg');  
+    animation: ${slide} 100s linear infinite alternate;
 `;
 
 const Content = styled.div`
@@ -45,29 +47,24 @@ const Content = styled.div`
 `;
 
 const CardContainer = styled.div`
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    margin-top: 20px;
-    @media (min-width: 768px) {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    @media (min-width: 1024px) {
-        grid-template-columns: repeat(4, 1fr);
-    }
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    margin-top: 10px;
+    padding: 0px;
 `;
 
 const Card = styled.div`
+    min-width: 200px; 
     background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    /* Background image */
     background-image: url(${props => props.image});
     background-size: cover;
     background-position: center;
-    height: 200px; /* Adjust as per your design */
+    height: 200px;
 `;
 
 const Polular = () => {
@@ -81,17 +78,42 @@ const Polular = () => {
                     <Card image={movie21}>
                         <h3>Title 1</h3>
                     </Card>
-                    <Card image={movie23}>
+                    <Card image={movie22}>
                         <h3>Title 2</h3>
                     </Card>
-                    <Card image={movie24}>
+                    <Card image={movie23}>
                         <h3>Title 3</h3>
                     </Card>
-                    <Card image={moviebg5}>
+                    <Card image={movie24}>
                         <h3>Title 4</h3>
                     </Card>
+                    <Card image={movie25}>
+                        <h3>Title 5</h3>
+                    </Card>
+                    <Card image={movie26}>
+                        <h3>Title 6</h3>
+                    </Card>                                       
                 </CardContainer>
-                
+                <CardContainer>
+                    <Card image={movie21}>
+                        <h3>Title 1</h3>
+                    </Card>
+                    <Card image={movie22}>
+                        <h3>Title 2</h3>
+                    </Card>
+                    <Card image={movie23}>
+                        <h3>Title 3</h3>
+                    </Card>
+                    <Card image={movie24}>
+                        <h3>Title 4</h3>
+                    </Card>
+                    <Card image={movie25}>
+                        <h3>Title 5</h3>
+                    </Card>
+                    <Card image={movie26}>
+                        <h3>Title 6</h3>
+                    </Card>                                       
+                </CardContainer>
             </Content>
             <Footer />
             <ToastContainer />
