@@ -51,16 +51,11 @@ const BackgroundCard = styled.div`
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
 
-const LoginFormElement = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-`;
 
 const LoginFormInput = styled.input`
     margin-bottom: 10px;
     padding: 8px;
-    width: 100%;
+    width: 95%;
 `;
 
 const LoginButton = styled.button`
@@ -105,7 +100,7 @@ const LoginForm = () => {
             <LoginFormContainer onSubmit={handleLogin}>
                 <BackgroundCard>
                     <p style={{ textAlign: 'center', fontSize: '18px', fontWeight: 'bold', marginBottom: '20px' }}>
-                        Welcome! Please login to access your account......
+                        Welcome! Please login to access your account.
                     </p>
                     <LoginFormInput
                         type="email"
