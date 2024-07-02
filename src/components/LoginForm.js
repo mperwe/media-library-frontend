@@ -1,34 +1,66 @@
 // LoginForm.js
 
-import React, { useState } from "react";
-import axios from "axios";
-import { API_URL } from "../utils/constants";
-import { toast } from 'react-toastify';
+import React, { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-import styled from "styled-components";
-import backgroundImage from '../images/movie13.jpg';
+import styled, { keyframes } from 'styled-components';
+import axios from 'axios';
+
+import { API_URL } from '../utils/constants';
+import backgroundImage from '../images/movie22.jpg';
+import 'react-toastify/dist/ReactToastify.css';
+
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+
+const slide = keyframes`
+    0% {
+        background-position: 0% 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+`;
+
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #eaeaea;
+    background-size: cover;
+    background-image: 
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+        url(${backgroundImage});
+    background-position: center;
+    animation: ${slide} 20s linear infinite alternate;
+`;
 
 const LoginFormContainer = styled.form`
     display: flex;
     justify-content: center;
-    padding: 100px;
-    height: 50vh;
-    width: 100vw; /* Set the width to cover the entire viewport */
-    background-image: url(${backgroundImage});
-    background-size: cover;
-    background-position: center;
+    align-items: center;
+    padding: 50px 20px;
+    height: 80vh;
 `;
 
+const BackgroundCard = styled.div`
+    width: 300px;
+    padding: 25px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+`;
 
 const LoginFormElement = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
 `;
 
 const LoginFormInput = styled.input`
-    margin-bottom: 0px;
+    margin-bottom: 10px;
     padding: 8px;
+    width: 100%;
 `;
 
 const LoginButton = styled.button`
@@ -38,23 +70,13 @@ const LoginButton = styled.button`
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    align-items: center; 
-`;
-
-const BackgroundCard = styled.div`
-    width: auto;
-    padding: 25px;
-    align-items: center;
-    border-radius: 10px;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    height: auto;
+    width: 100%;
+    margin-top: 10px;
 `;
 
 const LoginForm = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
     const handleLogin = async (e) => {
@@ -62,27 +84,28 @@ const LoginForm = () => {
         try {
             if (email && password) {
                 const result = await axios.post(`${API_URL}/users/login`, {
-                    password: password,
-                    email: email
+                    email: email,
+                    password: password
                 });
                 if (result && result.data?.token) {
-                    navigate('/dashboard');
                     localStorage.setItem('token', result.data.token);
+                    navigate('/dashboard');
                 } else {
-                    toast('User Login failed, contact Administrator');
+                    toast.error('User login failed, please contact Administrator.');
                 }
             }
         } catch (error) {
-            toast('User Login failed, contact Administrator');
+            toast.error('User login failed, please contact Administrator.');
         }
     };
 
     return (
-        <LoginFormContainer onSubmit={handleLogin}>
-            <LoginFormElement>
+        <Container>
+            <Header action="Register" onClick={() => navigate('/register')} />
+            <LoginFormContainer onSubmit={handleLogin}>
                 <BackgroundCard>
                     <p style={{ textAlign: 'center', fontSize: '18px', fontWeight: 'bold', marginBottom: '20px' }}>
-                        Welcome! Please login to access your account.
+                        Welcome! Please login to access your account......
                     </p>
                     <LoginFormInput
                         type="email"
@@ -100,11 +123,13 @@ const LoginForm = () => {
                     />
                     <LoginButton type="submit">Login</LoginButton>
                     <p style={{ textAlign: 'center', marginTop: '20px' }}>
-                        Don't have an account? <a href="/View">Sign up here</a>.
+                        Don't have an account? <a href="/register">Sign up here</a>.
                     </p>
                 </BackgroundCard>
-            </LoginFormElement>
-        </LoginFormContainer>
+            </LoginFormContainer>
+            <Footer />
+            <ToastContainer />
+        </Container>
     );
 };
 

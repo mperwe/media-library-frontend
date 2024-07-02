@@ -22,7 +22,7 @@ section {
 	width: 100%;
 	text-align: left;
 	font: bold 16px sans-serif;
-	padding: 55px 50px;
+	padding: 1px 10px;
 }
 
 .footer-distributed .footer-left,
@@ -88,7 +88,7 @@ section {
 	border-radius: 50%;
 	text-align: center;
 	line-height: 42px;
-	margin: 10px 15px;
+	margin: 0px 1px;
 	vertical-align: middle;
 }
 
@@ -150,11 +150,11 @@ section {
 	color:  #ffffff;
 	font-size: 14px;
 	font-weight: bold;
-	margin-bottom: 20px;
+	margin-bottom: 5px;
 }
 
 .footer-distributed .footer-icons{
-	margin-top: 25px;
+	margin-top: 1px;
 }
 
 .footer-distributed .footer-icons a{
@@ -174,7 +174,7 @@ section {
 	margin-bottom: 5px;
 }
 
-/* If you don't want the footer to be responsive, remove these media queries */
+
 
 @media (max-width: 880px) {
 

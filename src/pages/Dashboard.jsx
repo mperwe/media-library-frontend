@@ -186,7 +186,7 @@ const Dashboard = () => {
             </Link>
           </MenuItem>
           <MenuItem>
-            <Link to="/View">
+            <Link to="/">
               <RegisterButton>About Us</RegisterButton>
             </Link>
           </MenuItem>

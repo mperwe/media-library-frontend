@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   background-color: black;
@@ -72,12 +73,16 @@ const Link = styled.a`
   }
 `;
 
-const Header = ({ showLogin, setShowLogin }) => {
+const Header = ({ action, onClick }) => {
+  const navigate = useNavigate()
   const [movieListOpen, setMovieListOpen] = useState(false);
-
   const toggleMovieList = () => {
     setMovieListOpen(!movieListOpen);
   };
+
+  const handleLogin = ()=> {
+    navigate('/login')
+  }
 
   return (
     <Container>
@@ -87,25 +92,24 @@ const Header = ({ showLogin, setShowLogin }) => {
       </Logo>
       <Menu>
       <MenuItem>
-          <Link href="/">Home</Link>
+          <Link href="/">HOME</Link>
         </MenuItem>
-               
         <MenuItem>
-          <Link href="/dashboard">Search</Link>
+          <Link href="/dashboard">SEARCH</Link>
+          </MenuItem>
+          <MenuItem>
+          <Link href="/">WATCHLIST</Link>
         </MenuItem>
-       
-                {showLogin ? (
-        <MenuItem onClick={() => setShowLogin(false)}>
-          Register
+        <MenuItem>
+          <Link href="/">MOVIES</Link>
         </MenuItem>
-      ) : (
-        <MenuItem onClick={() => setShowLogin(true)}>
-        Login
-      </MenuItem>
-      )}
-      
+        <MenuItem>
+          <Link href="/">SERIES</Link>
+        </MenuItem>
+        <MenuItem onClick={onClick}>
+        {action}
+      </MenuItem>      
       </Menu>
-     
     </Container>
     
   );

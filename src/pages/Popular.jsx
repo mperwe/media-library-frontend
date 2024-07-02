@@ -1,12 +1,12 @@
-/* code under construction
-
-
+/*
 import React from 'react';
 import styled, { keyframes } from "styled-components";
 import { ToastContainer } from 'react-toastify';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import 'react-toastify/dist/ReactToastify.css';
+
+
 
 const slide = keyframes`
     0% {
