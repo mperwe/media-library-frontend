@@ -6,15 +6,13 @@ import Header from '../components/Header';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 
-// Import images
-
 import movie21 from '../images/movie21.jpg';
 import movie22 from '../images/movie22.jpg';
 import movie23 from '../images/movie23.jpg';
 import movie24 from '../images/movie24.jpeg';
 import movie25 from '../images/movie25.jpg';
-import movie26 from '../images/movie26.jpg'; // New image
-
+import movie26 from '../images/movie26.jpg';
+import movie28 from '../images/movie28.png';
 
 const slide = keyframes`
     0% {
@@ -32,7 +30,7 @@ const Container = styled.div`
     background-color: #EAEDED;
     background-image: 
     linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), 
-    url('/movie24.jpeg');  
+    url('/movie2.jpeg');  
     animation: ${slide} 100s linear infinite alternate;
 `;
 
@@ -40,27 +38,24 @@ const Content = styled.div`
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     padding: 20px;
-    text-align: center;
 `;
 
 const CardContainer = styled.div`
-    display: flex;
-    overflow-x: auto;
-    gap: 10px;
-    margin-top: 10px;
-    padding: 0px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 100px;
+    padding: 0 10px;
+    max-width: 1500px; 
+    width: 100%;
 `;
 
 const Card = styled.div`
-    min-width: 200px; 
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
     background-image: url(${props => props.image});
     background-size: cover;
     background-position: center;
@@ -72,47 +67,13 @@ const Polular = () => {
 
     return (
         <Container>
+           
             <Header action='Login' onClick={() => navigate('/login')} />
             <Content>
                 <CardContainer>
-                    <Card image={movie21}>
-                        <h3>Title 1</h3>
-                    </Card>
-                    <Card image={movie22}>
-                        <h3>Title 2</h3>
-                    </Card>
-                    <Card image={movie23}>
-                        <h3>Title 3</h3>
-                    </Card>
-                    <Card image={movie24}>
-                        <h3>Title 4</h3>
-                    </Card>
-                    <Card image={movie25}>
-                        <h3>Title 5</h3>
-                    </Card>
-                    <Card image={movie26}>
-                        <h3>Title 6</h3>
-                    </Card>                                       
-                </CardContainer>
-                <CardContainer>
-                    <Card image={movie21}>
-                        <h3>Title 1</h3>
-                    </Card>
-                    <Card image={movie22}>
-                        <h3>Title 2</h3>
-                    </Card>
-                    <Card image={movie23}>
-                        <h3>Title 3</h3>
-                    </Card>
-                    <Card image={movie24}>
-                        <h3>Title 4</h3>
-                    </Card>
-                    <Card image={movie25}>
-                        <h3>Title 5</h3>
-                    </Card>
-                    <Card image={movie26}>
-                        <h3>Title 6</h3>
-                    </Card>                                       
+                    {[movie21, movie22, movie23, movie24, movie25, movie26, movie28].map((image, index) => (
+                        <Card key={index} image={image} />
+                    ))}
                 </CardContainer>
             </Content>
             <Footer />
