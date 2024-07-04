@@ -6,6 +6,8 @@ import Popular from "./pages/Popular";
 import Related from "./pages/Related";
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
+import Movies from './pages/Movies'
+import Series from './pages/Series'
 
 
 
@@ -21,6 +23,8 @@ function App() {
         <Route path='/register' element={<RegisterForm />} />
         <Route path='/popular' element={<Popular />} />
         <Route path='/related' element={<Related />} />
+        <Route path='/movies' element={<Movies/>} />
+        <Route path='/series' element={<Series/>} />
       </Routes>
     </Router>
   );
