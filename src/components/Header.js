@@ -101,10 +101,10 @@ const Header = ({ action, onClick }) => {
           <Link href="/popular">WATCHLIST</Link>
         </MenuItem>
         <MenuItem>
-          <Link href="/">MOVIES</Link>
+          <Link href="/movies">MOVIES</Link>
         </MenuItem>
         <MenuItem>
-          <Link href="/">SERIES</Link>
+          <Link href="/series">SERIES</Link>
         </MenuItem>
         <MenuItem onClick={onClick}>
         {action}

@@ -7,6 +7,7 @@ import { ToastContainer } from 'react-toastify';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import { useNavigate } from 'react-router-dom';
+import backgroundImage from '../images/movie22.jpg';
 
 const RegisterButton = styled.button`
   background-color: #2ecc71;
@@ -24,7 +25,9 @@ const RegisterFormContainer = styled.form`
   justify-content: center;
   height: 100vh;
   padding: 20px;
-  background-image: url('/moviebg2.jpg',);
+   background-image: 
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+        url(${backgroundImage});
   background-size: cover;
   background-position: center;
 `;

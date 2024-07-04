@@ -22,7 +22,7 @@ const Container = styled.div`
     background-color: #EAEDED;
     background-image: 
         linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), 
-        url('/moviebg5.jpg');
+        url('/movie46.jpg');
     animation: ${slide} 25s linear infinite alternate;
 `;
 
